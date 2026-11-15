@@ -702,8 +702,98 @@ function badgesFor(st) {
   if (st.fc && st.fc.slope >= 5 && st.n >= 4) b.push({ t: '📈 Rising star', k: 'ok' });
   if (st.nCW >= 3 && st.wrongMains <= 3) b.push({ t: '🧼 Clean attempts', k: 'nt' });
   if (st.n >= 5) b.push({ t: '🗓️ Regular', k: 'nt' });
+  if (st.fc && st.fc.slope >= 10 && st.n >= 5) b.push({ t: '⚡ Momentum', k: 'ok' });
+  if (st.n >= 10 && st.total >= 320) b.push({ t: '💪 Consistent performer', k: 'ok' });
+  if (st.accMains !== null && st.accMains >= 0.90) b.push({ t: '🎖️ Accuracy master', k: 'ok' });
   return b;
 }
+
+function weeklyToppers(D) {
+  var week = new Date();
+  week.setDate(week.getDate() - 7);
+  var recentRecs = [];
+  S.members.forEach(function(m) {
+    var st = statsFor(m.id, D);
+    if (st.last !== null) recentRecs.push({ m: m, st: st, score: st.last });
+  });
+  recentRecs.sort(function(a, b) { return b.score - a.score; });
+  return recentRecs.slice(0, 3);
+}
+
+function getWeakAreas(id, D) {
+  var st = statsFor(id, D);
+  if (!st.n) return [];
+  var areas = [];
+  SUBJECTS.forEach(function(sj) {
+    var avg = st.subAvg[sj.k];
+    var overallAvg = st.total / SUBJECTS.length;
+    if (avg !== null && avg < overallAvg - 5) {
+      areas.push({ subject: sj.k, label: sj.label, avg: avg, gap: Math.round(overallAvg - avg) });
+    }
+  });
+  areas.sort(function(a, b) { return b.gap - a.gap; });
+  return areas;
+}
+
+function groupStats(D) {
+  var stats = { total: 0, count: 0, bySubject: {} };
+  SUBJECTS.forEach(function(s) { stats.bySubject[s.k] = { total: 0, count: 0 }; });
+  D.recs.forEach(function(r) {
+    if (r.total !== null) { stats.total += r.total; stats.count++; }
+    SUBJECTS.forEach(function(s) {
+      if (r.s[s.k].m !== null) { stats.bySubject[s.k].total += r.s[s.k].m; stats.bySubject[s.k].count++; }
+    });
+  });
+  stats.avg = stats.count ? (stats.total / stats.count) : 0;
+  Object.keys(stats.bySubject).forEach(function(k) {
+    var sb = stats.bySubject[k];
+    sb.avg = sb.count ? (sb.total / sb.count) : 0;
+  });
+  return stats;
+}
+
+function predictedScore(st) {
+  if (!st.fc || st.n < 3) return null;
+  var pred = st.fc.next;
+  return pred < 150 ? 150 : (pred > 390 ? 390 : pred);
+}
+
+function topImprovers(D, days) {
+  var period = days || 14;
+  var cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - period);
+  var improvers = [];
+  S.members.forEach(function(m) {
+    var st = statsFor(m.id, D);
+    if (st.n < 2) return;
+    var oldScores = st.recs.filter(function(r) { return new Date(r.at) < cutoff; }).map(function(r) { return r.total; });
+    var newScores = st.recs.filter(function(r) { return new Date(r.at) >= cutoff; }).map(function(r) { return r.total; });
+    if (oldScores.length > 0 && newScores.length > 0) {
+      var oldAvg = avg(oldScores);
+      var newAvg = avg(newScores);
+      var improvement = newAvg - oldAvg;
+      if (improvement > 0) improvers.push({ m: m, improvement: improvement, oldAvg: oldAvg, newAvg: newAvg });
+    }
+  });
+  improvers.sort(function(a, b) { return b.improvement - a.improvement; });
+  return improvers.slice(0, 5);
+}
+
+function platformStats(id, D) {
+  var platforms = {};
+  PLATS.forEach(function(p) { platforms[p.key] = { count: 0, total: 0, avg: 0 }; });
+  D.recs.forEach(function(r) {
+    if (r.member === id && r.total !== null) {
+      platforms[r.plat].count++;
+      platforms[r.plat].total += r.total;
+    }
+  });
+  Object.keys(platforms).forEach(function(k) {
+    if (platforms[k].count > 0) platforms[k].avg = platforms[k].total / platforms[k].count;
+  });
+  return platforms;
+}
+
 /* ================= Storage: shared database, or this device as a fallback ================= */
 function lsGet(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
@@ -1443,8 +1533,62 @@ function noticeCheers(D) {
 function viewHome(D) {
   var root = h('div', { class: 'stack' });
   var tops = toppersFor(D);
+  var gStats = groupStats(D);
+  var toppers = weeklyToppers(D);
+  var improvers = topImprovers(D, 14);
+
   root.appendChild(liveBar(D));
   if (S.members.length < 2 || D.recs.length === 0) root.appendChild(onboarding());
+
+  // Group Dashboard
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['📊 Group Dashboard']),
+    h('div', { class: 'grid g2' }, [
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['Group Average']),
+        h('div', { class: 'big-n' }, [f0(gStats.avg)])
+      ]),
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['Total Tests']),
+        h('div', { class: 'big-n' }, [String(D.recs.length)])
+      ]),
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['Active Members']),
+        h('div', { class: 'big-n' }, [String(S.members.filter(function(m) { return D.recs.some(function(r) { return r.member === m.id; }); }).length)])
+      ]),
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['Target (350+)']),
+        h('div', { class: 'big-n' }, [String(D.recs.filter(function(r) { return r.total >= 350; }).length)])
+      ])
+    ])
+  ]));
+
+  // Weekly Top 3
+  if (toppers.length > 0) {
+    root.appendChild(h('div', { class: 'card' }, [
+      h('h2', {}, ['🏆 Weekly Leaders']),
+      h('ul', { class: 'plain' }, toppers.map(function(tp, i) {
+        return h('li', {}, [
+          h('span', {}, [['🥇', '🥈', '🥉'][i] + ' ' + tp.m.name]),
+          h('span', {}, [f0(tp.st.last) + ' pts'])
+        ]);
+      }))
+    ]));
+  }
+
+  // Top Improvers
+  if (improvers.length > 0) {
+    root.appendChild(h('div', { class: 'card' }, [
+      h('h2', {}, ['📈 Top Improvers (2 weeks)']),
+      h('ul', { class: 'plain' }, improvers.map(function(im) {
+        return h('li', {}, [
+          h('span', {}, [im.m.name]),
+          h('span', { style: { color: '#10b981', fontWeight: '800' } }, ['+' + f0(im.improvement) + ' pts'])
+        ]);
+      }))
+    ]));
+  }
+
   root.appendChild(totalTopperCard(tops.total, D));
   root.appendChild(h('div', { class: 'grid g5' }, SUBJECTS.map(function (sj) { return subjectTopperCard(sj, tops.subject[sj.k]); })));
   root.appendChild(cheerSection(D));
@@ -2223,6 +2367,81 @@ function viewProfile(D) {
     h('div', { class: 'badges', style: { marginTop: '12px' } }, badgesFor(st).map(function (b) { return h('span', { class: 'chip ' + b.k }, [b.t]); })),
     h('div', { class: 'motto', style: { marginTop: '12px' } }, [msg])
   ]));
+
+  // WEAK AREAS
+  var weakAreas = getWeakAreas(m.id, D);
+  if (weakAreas.length > 0) {
+    root.appendChild(h('div', { class: 'card' }, [
+      h('h2', {}, ['🔴 Weak Areas (Focus Here)']),
+      h('p', { class: 'sub' }, ['Subjects below your average - these need attention']),
+      h('ul', { class: 'plain' }, weakAreas.map(function(wa) {
+        return h('li', {}, [
+          h('span', {}, [wa.label + ': ' + f1(wa.avg) + '/100']),
+          h('span', { style: { color: '#e11d48', fontWeight: '800' } }, ['Gap: ' + wa.gap + ' pts'])
+        ]);
+      }))
+    ]));
+  }
+
+  // CUTOFF PREDICTION
+  var gStats = groupStats(D);
+  var predicted = predictedScore(st);
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['🎯 Cutoff Prediction']),
+    h('p', { class: 'sub' }, ['Based on your current trend']),
+    h('div', { class: 'grid g2', style: { marginTop: '12px' } }, [
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['Predicted Score']),
+        h('div', { class: 'big-n' }, [predicted ? f0(predicted) : '–'])
+      ]),
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['Group Average']),
+        h('div', { class: 'big-n' }, [f1(gStats.avg)])
+      ]),
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['vs 350 Target']),
+        predicted ? h('div', { class: 'big-n', style: { color: predicted >= 350 ? '#10b981' : '#e11d48' } }, [predicted >= 350 ? '✅ ON TRACK' : '❌ ' + f0(350 - predicted) + ' SHORT']) : h('div', { class: 'muted' }, ['–'])
+      ]),
+      h('div', {}, [
+        h('div', { class: 'label-s' }, ['Tests to Goal']),
+        st.fc && st.fc.slope !== 0 ? h('div', { class: 'big-n' }, [Math.max(1, Math.ceil((350 - st.total) / Math.max(1, st.fc.slope))).toString()]) : h('div', { class: 'muted' }, ['–'])
+      ])
+    ])
+  ]));
+
+  // PLATFORM COMPARISON
+  var platStats = platformStats(m.id, D);
+  var platEntries = Object.keys(platStats).filter(function(k) { return platStats[k].count > 0; });
+  if (platEntries.length > 0) {
+    root.appendChild(h('div', { class: 'card' }, [
+      h('h2', {}, ['📱 Platform Performance']),
+      h('p', { class: 'sub' }, ['Average score by platform']),
+      h('ul', { class: 'plain' }, platEntries.map(function(pk) {
+        var p = PLAT_BY[pk];
+        var ps = platStats[pk];
+        return h('li', {}, [
+          h('span', {}, [p.name + ' (' + ps.count + ' tests)']),
+          h('span', { style: { fontWeight: '800' } }, [f1(ps.avg) + ' avg'])
+        ]);
+      }))
+    ]));
+  }
+
+  // SUBJECT VS GROUP
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['📊 You vs Group Average']),
+    h('p', { class: 'sub' }, ['How your subjects compare to everyone else']),
+    h('ul', { class: 'plain' }, SUBJECTS.map(function(sj) {
+      var yourAvg = st.subAvg[sj.k];
+      var groupAvg = gStats.bySubject[sj.k].avg;
+      var diff = yourAvg !== null && groupAvg ? yourAvg - groupAvg : null;
+      return h('li', {}, [
+        h('span', {}, [sj.label + ': ' + (yourAvg !== null ? f1(yourAvg) : '–')]),
+        diff !== null ? h('span', { style: { color: diff > 0 ? '#10b981' : '#e11d48', fontWeight: '800' } }, [diff >= 0 ? '+' : '' + f1(diff) + ' vs ' + f1(groupAvg)]) : h('span', { class: 'muted' }, ['–'])
+      ]);
+    }))
+  ]));
+
   root.appendChild(h('div', { class: 'grid g4' }, [
     tile('📊', 'Total average', st.total.toFixed(1), 'out of 390', bandChip(bandOf('total', st.total))),
     tile('🏅', 'Best total', String(st.best), 'lowest ' + st.worst + ' · ' + BAND_INFO[bandOf('total', st.best)].name),
