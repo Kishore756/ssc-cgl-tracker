@@ -363,8 +363,6 @@ function setupInfoBtn() {
 
 // =========================================================
 
-setupInfoBtn();
-
 /* ==== CORE ==== */
 (function(){
 'use strict';
@@ -899,30 +897,7 @@ async function init() {
   applyTheme();
   wireTyping();
   render(true);
-  setupSignIn();
-  
-  // Firebase Sign-In
-document.getElementById('signInBtn').addEventListener('click', function() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    alert('Signed in as: ' + result.user.email);
-    window.location.reload();
-  }).catch(function(error) {
-    alert('Sign in failed: ' + error.message);
-  });
-});
-
-// Check auth status
-firebase.auth().onAuthStateChanged(function(user) {
-  const btn = document.getElementById('signInBtn');
-  if (user) {
-    btn.textContent = '✅';
-    btn.title = 'Signed in: ' + user.email;
-  } else {
-    btn.textContent = '🔐';
-    btn.title = 'Click to sign in with Google';
-  }
-});
+  setupInfoBtn();
   // Setup Firestore listeners
   try {
     var firstMembersSnapshot = true;
