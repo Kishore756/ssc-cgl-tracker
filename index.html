@@ -295,16 +295,16 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .mkcell .mini{justify-content:flex-end}
 
 /* ===== BOTTOM TAB NAVIGATION ===== */
-.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:70px;background:var(--card);border-top:1px solid var(--line);z-index:100;flex-wrap:wrap}
-.bottom-nav button{flex:1;border:none;background:transparent;color:var(--muted);font-size:.65rem;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 6px;transition:all .2s;position:relative;min-height:70px}
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:65px;background:var(--card);border-top:1px solid var(--line);z-index:100;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bottom-nav button{flex:0 0 auto;min-width:65px;border:none;background:transparent;color:var(--muted);font-size:.6rem;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 8px;transition:all .2s;position:relative;height:65px;white-space:nowrap}
 .bottom-nav button:active{background:rgba(0,0,0,.05)}
 .bottom-nav button[aria-current="page"]{color:var(--brand)}
 .bottom-nav button[aria-current="page"]:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--brand)}
-.bottom-nav-icon{font-size:1.2rem;line-height:1}
+.bottom-nav-icon{font-size:1.3rem;line-height:1}
 
 /* ===== MOBILE RESPONSIVE DESIGN ===== */
 @media (max-width:760px){
-  body{padding-bottom:70px}
+  body{padding-bottom:65px}
   .bottom-nav{display:flex}
   .hero{padding:20px 0 60px}
   .hero h1{font-size:1.8rem}
