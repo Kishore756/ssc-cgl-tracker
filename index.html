@@ -293,6 +293,98 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .cnt-in{width:96px;text-align:center;font-variant-numeric:tabular-nums}
 .cellcheck{min-width:200px;text-align:left}
 .mkcell .mini{justify-content:flex-end}
+
+/* ===== MOBILE RESPONSIVE DESIGN ===== */
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:8px;width:40px;height:40px}
+.nav-mobile{display:none;position:fixed;top:0;left:-100%;width:100%;height:100vh;background:var(--bg);z-index:999;flex-direction:column;padding-top:60px;transition:left .3s ease;overflow-y:auto}
+.nav-mobile.active{left:0}
+.nav-mobile button{width:100%;text-align:left;padding:16px 20px;border:0;background:transparent;color:var(--ink);font-weight:600;border-bottom:1px solid var(--line);cursor:pointer}
+.nav-mobile button[aria-current="page"]{background:var(--bg2);color:var(--brand)}
+.nav-mobile button:active{background:var(--bg2)}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998}
+.overlay.active{display:block}
+
+/* Bottom Tab Bar */
+.bottom-tabs{display:none;position:fixed;bottom:0;left:0;right:0;height:60px;background:var(--card);border-top:1px solid var(--line);z-index:100;display:flex;justify-content:space-around;align-items:stretch;padding:0;margin:0}
+.bottom-tabs button{flex:1;border:none;background:transparent;color:var(--muted);font-size:.7rem;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transition:color .2s,background .2s;padding:0;border-radius:0}
+.bottom-tabs button:active{background:var(--bg2)}
+.bottom-tabs button[aria-current="page"]{color:var(--brand);border-top:3px solid var(--brand)}
+.bottom-tabs-icon{font-size:1.3rem;line-height:1}
+.bottom-tabs-more{position:relative}
+.more-menu{display:none;position:absolute;bottom:60px;right:0;background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);min-width:140px;z-index:101}
+.more-menu.active{display:block}
+.more-menu button{width:100%;text-align:left;padding:12px 14px;border:none;background:transparent;color:var(--ink);font-weight:500;font-size:.85rem;cursor:pointer;border-bottom:1px solid var(--line)}
+.more-menu button:last-child{border-bottom:none}
+.more-menu button:hover{background:var(--bg2)}
+.more-menu button:active{background:var(--bg2)}
+
+@media (max-width:760px){
+  .hero{padding:20px 0 60px}
+  .hero h1{font-size:1.8rem}
+  .hero-in{gap:8px}
+  .hero-tools{gap:6px}
+  .icon-btn{width:36px;height:36px;font-size:.9rem}
+
+  /* Mobile nav */
+  .hamburger{display:none}
+  .nav{display:none}
+  .nav-mobile{display:none}
+  .bottom-tabs{display:flex}
+  body{padding-bottom:60px}
+
+  /* Layout */
+  .wrap{padding:0 12px}
+  .card{padding:14px}
+  .card h2{font-size:.95rem;margin-bottom:8px}
+
+  /* Grid adjustments */
+  .g2,.g3,.g4,.g5{grid-template-columns:1fr}
+
+  /* Buttons */
+  .btn{padding:12px 16px;font-size:.9rem;width:100%}
+  input[type=text],input[type=number],input[type=search],select{padding:12px;font-size:16px}
+
+  /* Hero layout */
+  .hero-in{flex-direction:column}
+
+  /* Large text for readability */
+  .big-n{font-size:1.8rem}
+  .bigg{font-size:2rem}
+
+  /* Stack tiles */
+  .tile{padding:12px}
+  .tile .big{font-size:1.6rem}
+
+  /* Ensure touch targets are 44px minimum */
+  button{min-height:44px;min-width:44px}
+
+  /* Simplify tables for mobile */
+  .tbl{font-size:.8rem}
+  .tbl td{padding:8px 6px}
+
+  /* Modal adjustments */
+  .modal{max-width:90vw;padding:16px}
+  .modal h3{font-size:1rem}
+}
+
+@media (max-width:480px){
+  .hero{padding:16px 0 50px;border-radius:0 0 24px 24px}
+  .hero h1{font-size:1.5rem}
+  .kicker{font-size:.65rem}
+  .wrap{padding:0 10px}
+  .card{padding:12px;border-radius:14px}
+  .btn{padding:14px 12px;font-size:.85rem}
+  input[type=text],input[type=number],input[type=search],select{padding:14px 10px;font-size:16px}
+  .hero-tools{gap:4px}
+  .icon-btn{width:32px;height:32px;font-size:.8rem}
+  .grid{gap:10px}
+  .tile{padding:10px}
+  .tile .big{font-size:1.4rem}
+  .plain li{flex-direction:column;align-items:flex-start}
+  .plain li span:last-child{margin-top:4px}
+  .nav-mobile{padding-top:50px}
+  .nav-mobile button{padding:14px 16px;font-size:.9rem}
+}
 </style>
 </head>
 <body>
@@ -312,10 +404,13 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 </header>
 <div class="wrap">
   <nav class="nav" id="nav" aria-label="Sections"></nav>
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile menu"></nav>
+  <div class="overlay" id="overlay"></div>
   <div id="banner"></div>
   <main id="view" class="fade"></main>
   <p class="foot">Scores are shared live with everyone who has Contributor access. Ranks are final about 3 days after each test.</p>
 </div>
+<nav class="bottom-tabs" id="bottomTabs" aria-label="Main sections"></nav>
 <div id="toasts" aria-live="polite"></div>
 <div id="modal"></div>
 <script>
@@ -824,12 +919,71 @@ function buildNav() {
     nav.appendChild(h('button', { type: 'button', 'data-view': v.id, onclick: function () { go(v.id); } },
       [h('span', { 'aria-hidden': 'true' }, [v.icon]), v.label]));
   });
+
+  var navMobile = $('#navMobile');
+  clearEl(navMobile);
+  VIEWS.forEach(function (v) {
+    navMobile.appendChild(h('button', { type: 'button', 'data-view': v.id, onclick: function () { closeMobileMenu(); go(v.id); } },
+      [h('span', { 'aria-hidden': 'true' }, [v.icon]), ' ', v.label]));
+  });
+
+  var bottomTabs = $('#bottomTabs');
+  clearEl(bottomTabs);
+  var mainViews = ['home', 'enter', 'tests', 'board', 'profile'];
+  var moreViews = VIEWS.filter(function(v) { return mainViews.indexOf(v.id) === -1; });
+
+  mainViews.forEach(function(viewId) {
+    var v = VIEWS.find(function(x) { return x.id === viewId; });
+    if (v) {
+      bottomTabs.appendChild(h('button', { type: 'button', 'data-view': v.id, onclick: function () { go(v.id); }, class: 'bottom-tab' },
+        [h('span', { class: 'bottom-tabs-icon', 'aria-hidden': 'true' }, [v.icon]), h('span', {}, [v.label])]));
+    }
+  });
+
+  if (moreViews.length > 0) {
+    var moreBtn = h('button', { type: 'button', class: 'bottom-tabs-more', onclick: function() { toggleMoreMenu(); } },
+      [h('span', { class: 'bottom-tabs-icon', 'aria-hidden': 'true' }, ['⋯']), h('span', {}, ['More'])]);
+    bottomTabs.appendChild(moreBtn);
+
+    var moreMenu = h('div', { class: 'more-menu', id: 'moreMenu' });
+    moreViews.forEach(function(v) {
+      moreMenu.appendChild(h('button', { type: 'button', 'data-view': v.id, onclick: function() { closeMoreMenu(); go(v.id); } },
+        [v.icon, ' ', v.label]));
+    });
+    moreBtn.appendChild(moreMenu);
+  }
 }
 function renderNav() {
   Array.prototype.forEach.call($('#nav').children, function (b) {
     if (b.getAttribute('data-view') === S.view) b.setAttribute('aria-current', 'page');
     else b.removeAttribute('aria-current');
   });
+  renderMobileNav();
+}
+function renderMobileNav() {
+  Array.prototype.forEach.call($('#navMobile').children, function (b) {
+    if (b.getAttribute('data-view') === S.view) b.setAttribute('aria-current', 'page');
+    else b.removeAttribute('aria-current');
+  });
+  renderBottomTabs();
+}
+function renderBottomTabs() {
+  Array.prototype.forEach.call($('#bottomTabs').querySelectorAll('button.bottom-tab'), function (b) {
+    if (b.getAttribute('data-view') === S.view) b.setAttribute('aria-current', 'page');
+    else b.removeAttribute('aria-current');
+  });
+  Array.prototype.forEach.call($('#bottomTabs').querySelectorAll('[id^="moreMenu"] button'), function (b) {
+    if (b.getAttribute('data-view') === S.view) b.setAttribute('aria-current', 'page');
+    else b.removeAttribute('aria-current');
+  });
+}
+function toggleMoreMenu() {
+  var menu = $('#moreMenu');
+  if (menu) menu.classList.toggle('active');
+}
+function closeMoreMenu() {
+  var menu = $('#moreMenu');
+  if (menu) menu.classList.remove('active');
 }
 function renderPill() {
   var p = $('#modePill'), txt = 'Connecting…', cls = '';
@@ -851,6 +1005,22 @@ function go(id) {
   S.view = id; S.typing = false; S.pending = false;
   render(true);
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleMobileMenu() {
+  var menu = $('#navMobile');
+  var overlay = $('#overlay');
+  var isOpen = menu.classList.contains('active');
+  if (isOpen) closeMobileMenu();
+  else {
+    menu.classList.add('active');
+    overlay.classList.add('active');
+  }
+}
+function closeMobileMenu() {
+  var menu = $('#navMobile');
+  var overlay = $('#overlay');
+  menu.classList.remove('active');
+  overlay.classList.remove('active');
 }
 function scheduleRender() { render(false); }
 function render(force) {
@@ -892,6 +1062,7 @@ function applyTheme() {
     b.textContent = cur === 'dark' ? '☀️' : '🌙';
     try { localStorage.setItem('mm_theme', cur); } catch (e) {}
   });
+
 }
 
 /* ================= Live data ================= */
