@@ -332,43 +332,61 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Info Button Handler - Show how to use the tracker
+// Info popup - show in modal
+function showInfoModal() {
+  const back = document.createElement('div');
+  back.className = 'modal-back';
+  back.onclick = function(e) { if (e.target === back) back.remove(); };
+
+  const box = document.createElement('div');
+  box.className = 'modal';
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-modal', 'true');
+  box.setAttribute('aria-label', 'How to use');
+  box.innerHTML = `
+    <h3>📊 How to Use This Tracker</h3>
+    <div style="font-size: .95rem; line-height: 1.6; color: var(--muted);">
+      <p>✅ <b>No sign-in needed!</b> Everyone can enter scores and see real-time updates without any account or password.</p>
+      <p>📝 <b>Enter your scores:</b> Click "Enter scores" → select your name, test details, and marks.</p>
+      <p>🏆 <b>See leaderboards:</b> Check "Leaderboard" to see how everyone is performing.</p>
+      <p>📈 <b>Track progress:</b> Visit "Profile" to see your personal insights and trends.</p>
+      <p>🔄 <b>Real-time sync:</b> Changes appear instantly on all devices (phone, laptop, tablet).</p>
+      <p style="margin-top: 16px; padding: 12px; background: var(--bg2); border-radius: 10px; font-size: .9rem;">
+        <b>💡 Tip:</b> Just open this link on any device and start entering scores. Your friends will see them immediately!
+      </p>
+    </div>
+    <div class="row end gap" style="margin-top: 18px;">
+      <button class="btn" type="button">Got it! 👍</button>
+    </div>
+  `;
+
+  const closeBtn = box.querySelector('.btn');
+  closeBtn.onclick = function() {
+    back.remove();
+    try { localStorage.setItem('mm_info_seen', 'true'); } catch(e) {}
+  };
+
+  back.appendChild(box);
+  var modalEl = document.getElementById('modal');
+  if (modalEl) modalEl.appendChild(back);
+}
+
+// Info Button Handler - Show on first visit, allow manual access
 function setupInfoBtn() {
   const btn = document.getElementById('infoBtn');
   if (!btn) return;
 
+  // Show automatically on first visit
+  try {
+    var infoSeen = localStorage.getItem('mm_info_seen');
+    if (!infoSeen) {
+      setTimeout(function() { showInfoModal(); }, 900);
+    }
+  } catch(e) {}
+
+  // Allow manual access via button
   btn.addEventListener('click', function() {
-    const back = document.createElement('div');
-    back.className = 'modal-back';
-    back.onclick = function(e) { if (e.target === back) back.remove(); };
-
-    const box = document.createElement('div');
-    box.className = 'modal';
-    box.setAttribute('role', 'dialog');
-    box.setAttribute('aria-modal', 'true');
-    box.setAttribute('aria-label', 'How to use');
-    box.innerHTML = `
-      <h3>📊 How to Use This Tracker</h3>
-      <div style="font-size: .95rem; line-height: 1.6; color: var(--muted);">
-        <p>✅ <b>No sign-in needed!</b> Everyone can enter scores and see real-time updates without any account or password.</p>
-        <p>📝 <b>Enter your scores:</b> Click "Enter scores" → select your name, test details, and marks.</p>
-        <p>🏆 <b>See leaderboards:</b> Check "Leaderboard" to see how everyone is performing.</p>
-        <p>📈 <b>Track progress:</b> Visit "Profile" to see your personal insights and trends.</p>
-        <p>🔄 <b>Real-time sync:</b> Changes appear instantly on all devices (phone, laptop, tablet).</p>
-        <p style="margin-top: 16px; padding: 12px; background: var(--bg2); border-radius: 10px; font-size: .9rem;">
-          <b>💡 Tip:</b> Just open this link on any device and start entering scores. Your friends will see them immediately!
-        </p>
-      </div>
-      <div class="row end gap" style="margin-top: 18px;">
-        <button class="btn" type="button">Got it! 👍</button>
-      </div>
-    `;
-
-    const closeBtn = box.querySelector('.btn');
-    closeBtn.onclick = function() { back.remove(); };
-
-    back.appendChild(box);
-    document.getElementById('modal').appendChild(back);
+    showInfoModal();
   });
 }
 
