@@ -338,25 +338,36 @@ function setupInfoBtn() {
   if (!btn) return;
 
   btn.addEventListener('click', function() {
-    var back = h('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
-    var box = h('div', { class: 'modal', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'How to use' }, [
-      h('h3', {}, ['📊 How to Use This Tracker']),
-      h('div', { style: { fontSize: '.95rem', lineHeight: '1.6', color: 'var(--muted)' } }, [
-        h('p', {}, ['✅ ', h('b', {}, ['No sign-in needed!']), ' Everyone can enter scores and see real-time updates without any account or password.']),
-        h('p', {}, ['📝 ', h('b', {}, ['Enter your scores:']), ' Click "Enter scores" → select your name, test details, and marks.']),
-        h('p', {}, ['🏆 ', h('b', {}, ['See leaderboards:']), ' Check "Leaderboard" to see how everyone is performing.']),
-        h('p', {}, ['📈 ', h('b', {}, ['Track progress:']), ' Visit "Profile" to see your personal insights and trends.']),
-        h('p', {}, ['🔄 ', h('b', {}, ['Real-time sync:']), ' Changes appear instantly on all devices (phone, laptop, tablet).']),
-        h('p', { style: { marginTop: '16px', padding: '12px', background: 'var(--bg2)', borderRadius: '10px', fontSize: '.9rem' } }, [
-          h('b', {}, ['💡 Tip:']), ' Just open this link on any device and start entering scores. Your friends will see them immediately!'
-        ])
-      ]),
-      h('div', { class: 'row end gap', style: { marginTop: '18px' } }, [
-        h('button', { class: 'btn', type: 'button', onclick: function () { close(); } }, ['Got it! 👍'])
-      ])
-    ]);
+    const back = document.createElement('div');
+    back.className = 'modal-back';
+    back.onclick = function(e) { if (e.target === back) back.remove(); };
+
+    const box = document.createElement('div');
+    box.className = 'modal';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-label', 'How to use');
+    box.innerHTML = `
+      <h3>📊 How to Use This Tracker</h3>
+      <div style="font-size: .95rem; line-height: 1.6; color: var(--muted);">
+        <p>✅ <b>No sign-in needed!</b> Everyone can enter scores and see real-time updates without any account or password.</p>
+        <p>📝 <b>Enter your scores:</b> Click "Enter scores" → select your name, test details, and marks.</p>
+        <p>🏆 <b>See leaderboards:</b> Check "Leaderboard" to see how everyone is performing.</p>
+        <p>📈 <b>Track progress:</b> Visit "Profile" to see your personal insights and trends.</p>
+        <p>🔄 <b>Real-time sync:</b> Changes appear instantly on all devices (phone, laptop, tablet).</p>
+        <p style="margin-top: 16px; padding: 12px; background: var(--bg2); border-radius: 10px; font-size: .9rem;">
+          <b>💡 Tip:</b> Just open this link on any device and start entering scores. Your friends will see them immediately!
+        </p>
+      </div>
+      <div class="row end gap" style="margin-top: 18px;">
+        <button class="btn" type="button">Got it! 👍</button>
+      </div>
+    `;
+
+    const closeBtn = box.querySelector('.btn');
+    closeBtn.onclick = function() { back.remove(); };
+
     back.appendChild(box);
-    function close() { back.remove(); }
     document.getElementById('modal').appendChild(back);
   });
 }
