@@ -306,7 +306,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
     <div class="hero-tools">
       <span class="pill" id="modePill">Connecting…</span>
      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
-     <button class="icon-btn" id="signInBtn" type="button" aria-label="Sign in with Google" title="Sign in with Google">🔐</button>
+     <button class="icon-btn" id="infoBtn" type="button" aria-label="How to use" title="How to use this tracker">ℹ️</button>
     </div>
   </div>
 </header>
@@ -332,39 +332,38 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Sign-In Button Handler
-function setupSignIn() {
-  const btn = document.getElementById('signInBtn');
+// Info Button Handler - Show how to use the tracker
+function setupInfoBtn() {
+  const btn = document.getElementById('infoBtn');
   if (!btn) return;
-  
+
   btn.addEventListener('click', function() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
-      .then(function(result) {
-        console.log('✅ Signed in as:', result.user.email);
-        alert('✅ Signed in as: ' + result.user.email + '\n\nYou can now import data!');
-      })
-      .catch(function(error) {
-        console.error('❌ Sign in error:', error);
-        alert('❌ Sign in failed: ' + error.message);
-      });
-  });
-  
-  // Update button when auth state changes
-  auth.onAuthStateChanged(function(user) {
-    if (user) {
-      btn.textContent = '✅';
-      btn.title = 'Signed in: ' + user.email;
-      btn.style.background = 'rgba(16, 185, 129, 0.3)';
-    } else {
-      btn.textContent = '🔐';
-      btn.title = 'Click to sign in with Google';
-      btn.style.background = 'rgba(255, 255, 255, 0.18)';
-    }
+    var back = h('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
+    var box = h('div', { class: 'modal', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'How to use' }, [
+      h('h3', {}, ['📊 How to Use This Tracker']),
+      h('div', { style: { fontSize: '.95rem', lineHeight: '1.6', color: 'var(--muted)' } }, [
+        h('p', {}, ['✅ ', h('b', {}, ['No sign-in needed!']), ' Everyone can enter scores and see real-time updates without any account or password.']),
+        h('p', {}, ['📝 ', h('b', {}, ['Enter your scores:']), ' Click "Enter scores" → select your name, test details, and marks.']),
+        h('p', {}, ['🏆 ', h('b', {}, ['See leaderboards:']), ' Check "Leaderboard" to see how everyone is performing.']),
+        h('p', {}, ['📈 ', h('b', {}, ['Track progress:']), ' Visit "Profile" to see your personal insights and trends.']),
+        h('p', {}, ['🔄 ', h('b', {}, ['Real-time sync:']), ' Changes appear instantly on all devices (phone, laptop, tablet).']),
+        h('p', { style: { marginTop: '16px', padding: '12px', background: 'var(--bg2)', borderRadius: '10px', fontSize: '.9rem' } }, [
+          h('b', {}, ['💡 Tip:']), ' Just open this link on any device and start entering scores. Your friends will see them immediately!'
+        ])
+      ]),
+      h('div', { class: 'row end gap', style: { marginTop: '18px' } }, [
+        h('button', { class: 'btn', type: 'button', onclick: function () { close(); } }, ['Got it! 👍'])
+      ])
+    ]);
+    back.appendChild(box);
+    function close() { back.remove(); }
+    document.getElementById('modal').appendChild(back);
   });
 }
 
 // =========================================================
+
+setupInfoBtn();
 
 /* ==== CORE ==== */
 (function(){
