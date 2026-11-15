@@ -315,9 +315,11 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
   .hero-tools{gap:6px}
   .icon-btn{width:36px;height:36px;font-size:.9rem}
 
-  /* Mobile nav - scrollable horizontal */
-  .nav{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;gap:2px;padding:6px}
-  .nav button{padding:6px 8px;font-size:.7rem;white-space:nowrap;gap:2px}
+  /* Mobile nav - compact to fit all names */
+  .nav{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;gap:0px;padding:4px}
+  .nav button{padding:4px 6px;font-size:.65rem;white-space:nowrap;gap:2px;min-width:auto}
+  .nav button span:first-child{font-size:1rem}
+  .nav button span:last-child{display:inline}
 
   /* Layout */
   .wrap{padding:0 12px}
