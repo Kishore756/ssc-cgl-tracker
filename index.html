@@ -21,6 +21,7 @@ html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;min-height:100vh;font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:15px;line-height:1.5;color:var(--ink);background:var(--bg);background-image:radial-gradient(900px 480px at 0% -10%,rgba(99,102,241,.14),transparent 60%),radial-gradient(800px 420px at 110% 0%,rgba(236,72,153,.10),transparent 55%);background-attachment:fixed}
 button,input,select{font:inherit;color:inherit}
 .wrap{max-width:1220px;margin:0 auto;padding:0 16px}
+/* hero */
 .hero{position:relative;overflow:hidden;color:#fff;padding:30px 0 96px;border-radius:0 0 36px 36px;background:linear-gradient(120deg,#1e1b4b,#4338ca 35%,#7c3aed 65%,#db2777);background-size:220% 220%;animation:aurora 16s ease infinite}
 .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none}
 .hero:before{width:380px;height:380px;right:-90px;top:-130px;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%)}
@@ -35,6 +36,7 @@ button,input,select{font:inherit;color:inherit}
 .pill.live:before{content:"";width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.28)}
 .pill.warn{background:rgba(251,191,36,.28)}
 .icon-btn{border:0;background:rgba(255,255,255,.18);color:#fff;width:40px;height:40px;border-radius:12px;cursor:pointer;font-size:1.05rem}
+/* nav */
 .nav{position:relative;z-index:2;margin-top:-54px;background:var(--card);border-radius:18px;box-shadow:var(--shadow);display:flex;gap:6px;padding:8px;overflow-x:auto;border:1px solid var(--line)}
 .nav button{border:0;background:transparent;padding:10px 14px;border-radius:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:background .2s,color .2s}
 .nav button:hover{background:var(--bg2);color:var(--ink)}
@@ -124,6 +126,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .tests-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:14px}
 .test-card{display:flex;flex-direction:column;gap:10px}
 .plat-dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto;margin-top:6px}
+/* entry table */
 .cw{display:flex;gap:6px;justify-content:flex-end}
 .cw input{width:60px;text-align:center;font-variant-numeric:tabular-nums}
 .cw input[disabled]{opacity:.5}
@@ -134,6 +137,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .tbl.entry td[data-tband]{text-align:right;margin-top:3px}
 .num-in{width:86px}
 .rank-in{width:100px;text-align:right}
+/* banners, help, empties */
 .banner{background:var(--bg2);color:var(--ink);padding:12px 14px;border-radius:14px;margin-top:14px;font-size:.9rem;border:1px solid var(--line)}
 .banner.warn{background:var(--warnbg,#fef3c7);color:#92400e;border-color:transparent}
 .motto{padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,rgba(79,70,229,.14),rgba(236,72,153,.1));border:1px solid var(--line);font-weight:700}
@@ -147,12 +151,14 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field label{font-size:.8rem;font-weight:700;color:var(--muted)}
 .sel-wide{min-width:220px}
+/* insights */
 .insights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (max-width:760px){.insights{grid-template-columns:1fr}}
 .insight{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--bg2);border:1px solid var(--line)}
 .insight .ic{font-size:1.5rem;line-height:1}
 .insight b{display:block;font-size:.92rem}
 .insight span{font-size:.86rem;color:var(--muted)}
+/* consistency wall */
 .wall{display:grid;gap:12px}
 .wall-row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px;align-items:center}
 .wall-months{display:flex;gap:16px;overflow-x:auto;padding-bottom:4px}
@@ -168,6 +174,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .hc.hc-none{background:repeating-linear-gradient(45deg,var(--bg2),var(--bg2) 3px,var(--line) 3px,var(--line) 4px)}
 .legend{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:.8rem;color:var(--muted);margin:6px 0 12px}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+/* accuracy bars */
 .abar{display:grid;grid-template-columns:110px minmax(0,1fr) 56px;gap:10px;align-items:center;margin:8px 0;font-size:.86rem}
 .abar .bar{height:12px}
 .abar .bar>span{background:linear-gradient(90deg,#22d3ee,#6366f1)}
@@ -177,6 +184,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .compare-win{background:linear-gradient(90deg,rgba(16,185,129,.2),transparent);font-weight:800}
 .pop{animation:pop .5s cubic-bezier(.2,.9,.3,1.3) both}
 @keyframes pop{0%{transform:scale(.85);opacity:0}100%{transform:none;opacity:1}}
+/* modal & toast */
 .modal-back{position:fixed;inset:0;background:rgba(10,12,30,.55);display:grid;place-items:center;z-index:60;padding:16px;backdrop-filter:blur(3px)}
 .modal{background:var(--card);border-radius:20px;padding:22px;max-width:440px;width:100%;box-shadow:0 30px 60px rgba(0,0,0,.35);border:1px solid var(--line)}
 .modal h3{margin:0 0 6px;font-size:1.1rem}
@@ -185,6 +193,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .toast.ok{background:linear-gradient(135deg,#065f46,#047857)}
 .toast.warn{background:linear-gradient(135deg,#92400e,#b45309)}
 .toast.out{opacity:0;transition:opacity .3s}
+/* confetti */
 .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:80}
 .confetti span{position:absolute;top:-18px;width:9px;height:15px;border-radius:2px;animation-name:fall;animation-timing-function:cubic-bezier(.2,.6,.3,1);animation-fill-mode:forwards}
 @keyframes fall{0%{transform:translateY(0) rotate(0deg)}100%{transform:translateY(110vh) rotate(860deg);opacity:.15}}
@@ -194,26 +203,27 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .rules td,.rules th{font-size:.86rem}
 .rules .tag{display:inline-block;min-width:98px;text-align:center}
 @media (max-width:760px){
-.tbl.entry thead{display:none}
-.tbl.entry,.tbl.entry tbody,.tbl.entry tr,.tbl.entry td{display:block;width:100%}
-.tbl.entry tr{border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin-bottom:12px;background:var(--card);display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
-.tbl.entry td{border:0;padding:0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.tbl.entry td:first-child{grid-column:1/-1;border-bottom:1px solid var(--line);padding-bottom:8px}
-.tbl.entry td[data-label]:before{content:attr(data-label);font-size:.74rem;color:var(--muted);font-weight:700}
-.tbl.entry td.cwcell{grid-column:1/-1;display:block}
-.tbl.entry td.cwcell:before{display:block;margin-bottom:4px}
-.tbl.entry .cw{justify-content:flex-start}
-.tbl.entry .mini{justify-content:flex-start;text-align:left}
-.tbl.entry td .num-in,.tbl.entry td .rank-in{width:100px}
-.wall-row{grid-template-columns:1fr}
-.tbl.board thead{display:none}
-.tbl.board tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:10px;background:var(--card)}
-.tbl.board td{border:0;padding:0;display:flex;justify-content:space-between;gap:6px}
-.tbl.board td:first-child{grid-column:1/-1}
-.tbl.board td[data-label]:before{content:attr(data-label);color:var(--muted);font-size:.74rem}
-.podium .pod .score{font-size:1.2rem}
+  .tbl.entry thead{display:none}
+  .tbl.entry,.tbl.entry tbody,.tbl.entry tr,.tbl.entry td{display:block;width:100%}
+  .tbl.entry tr{border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin-bottom:12px;background:var(--card);display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+  .tbl.entry td{border:0;padding:0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+  .tbl.entry td:first-child{grid-column:1/-1;border-bottom:1px solid var(--line);padding-bottom:8px}
+  .tbl.entry td[data-label]:before{content:attr(data-label);font-size:.74rem;color:var(--muted);font-weight:700}
+  .tbl.entry td.cwcell{grid-column:1/-1;display:block}
+  .tbl.entry td.cwcell:before{display:block;margin-bottom:4px}
+  .tbl.entry .cw{justify-content:flex-start}
+  .tbl.entry .mini{justify-content:flex-start;text-align:left}
+  .tbl.entry td .num-in,.tbl.entry td .rank-in{width:100px}
+  .wall-row{grid-template-columns:1fr}
+  .tbl.board thead{display:none}
+  .tbl.board tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:10px;background:var(--card)}
+  .tbl.board td{border:0;padding:0;display:flex;justify-content:space-between;gap:6px}
+  .tbl.board td:first-child{grid-column:1/-1}
+  .tbl.board td[data-label]:before{content:attr(data-label);color:var(--muted);font-size:.74rem}
+  .podium .pod .score{font-size:1.2rem}
 }
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
 .g5{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media (max-width:1100px){.g5{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.g5{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -255,6 +265,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .standing-subs{display:flex;flex-direction:column;gap:4px;font-size:.84rem}
 .standing-sub{display:flex;justify-content:space-between;gap:10px}
 @media (max-width:760px){.msub{grid-template-columns:1fr}}
+
 .cheer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media (max-width:900px){.cheer-grid{grid-template-columns:1fr}}
 .cheer-card{border:1px solid var(--line);border-radius:18px;padding:14px;background:linear-gradient(180deg,rgba(99,102,241,.07),var(--card) 55%);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;min-width:0;position:relative}
@@ -303,12 +314,12 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
   <nav class="nav" id="nav" aria-label="Sections"></nav>
   <div id="banner"></div>
   <main id="view" class="fade"></main>
-  <p class="foot">Scores are shared live with everyone. No sign-in needed!</p>
+  <p class="foot">Scores are shared live with everyone who has Contributor access. Ranks are final about 3 days after each test.</p>
 </div>
 <div id="toasts" aria-live="polite"></div>
 <div id="modal"></div>
 <script>
-// ========= FIREBASE INIT =========
+// ========= FIREBASE INIT (Add this at the very beginning) =========
 firebase.initializeApp({
   apiKey: "AIzaSyAIOvGkL9mnxMyvPyTD-QyAI8v6Bno9GDM",
   authDomain: "cgl-mains-tracker.firebaseapp.com",
@@ -321,10 +332,11 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Info Button - How to use
+// Info Button Handler - Show how to use the tracker
 function setupInfoBtn() {
   const btn = document.getElementById('infoBtn');
   if (!btn) return;
+
   btn.addEventListener('click', function() {
     var back = h('div', { class: 'modal-back', onclick: function (e) { if (e.target === back) close(); } });
     var box = h('div', { class: 'modal', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'How to use' }, [
@@ -349,11 +361,15 @@ function setupInfoBtn() {
   });
 }
 
+// =========================================================
+
 setupInfoBtn();
 
+/* ==== CORE ==== */
 (function(){
 'use strict';
 
+/* ================= Reference data ================= */
 var MONTHS = ['Oct', 'Nov', 'Dec', 'Jan'];
 var WEEKS = [];
 MONTHS.forEach(function (m, mi) {
@@ -363,6 +379,7 @@ MONTHS.forEach(function (m, mi) {
 });
 var WEEK_BY = {};
 WEEKS.forEach(function (w) { WEEK_BY[w.key] = w; });
+// Dates from the group sheet are confirmed. The others follow the Friday-to-Sunday pattern and are marked est. until edited.
 var DEFAULT_LABEL = {
   'oct-t1': 'Oct T1 (09-11)', 'oct-t2': 'Oct T2 (16-18)', 'oct-t3': 'Oct T3 (23-25)', 'oct-t4': 'Oct T4 (30-31)',
   'nov-t1': 'Nov T1 (6-8)', 'nov-t2': 'Nov T2 (13-15)', 'nov-t3': 'Nov T3 (20-22)', 'nov-t4': 'Nov T4 (27-29)',
@@ -387,6 +404,7 @@ var SUBJECTS = [
 var SUBJ_BY = {};
 SUBJECTS.forEach(function (s) { SUBJ_BY[s.k] = s; });
 var MAINS = ['maths', 'reasoning', 'english', 'ga'];
+// Colour bands exactly as set in the group sheet. A value counts for the first band whose minimum it reaches.
 var BANDS = {
   maths: { o: 90, gs: 81, ok: 70 },
   reasoning: { o: 90, gs: 85, ok: 81 },
@@ -422,10 +440,11 @@ var MOTTOS = [
   'Your rank is built by the mock you write today.',
   'Review the mistakes more than the marks. That is where the gains are.',
   'Small daily gains add up to a big total out of 390.',
-  'Compete with yesterday's you first, then with your own targets.',
+  'Compete with yesterday’s you first, then with your own targets.',
   'Three correct answers are worth nine marks. Accuracy is power.'
 ];
 
+/* ================= State ================= */
 var S = {
   mode: 'connecting', readOnly: false, slow: false, view: 'home',
   members: [], scores: [], labels: {}, settings: { groupName: 'Our Mains Squad' },
@@ -438,6 +457,7 @@ var S = {
 };
 var CAP = { db: null, user: null, downloads: null };
 
+/* ================= Helpers ================= */
 function $(sel, root) { return (root || document).querySelector(sel); }
 function num(v) {
   if (v === null || v === undefined) return null;
@@ -527,13 +547,19 @@ function ring(p, size, big, small) {
   return h('div', { class: 'ring', style: { width: size + 'px', height: size + 'px' } }, [svg, h('div', { class: 'txt' }, [h('b', {}, [big]), h('span', {}, [small])])]);
 }
 
+/* ================= Scoring model ================= */
+// A subject's marks come from Correct and Wrong: 3 per correct, minus 1 per wrong, 0 for unattempted.
+// Older rows (marks typed directly, no Correct/Wrong) are kept as "marks only".
 function normalize(d) {
   var sub = d.sub;
   if (!sub) {
+    // the first version of the tracker stored marks directly
     sub = { maths: { m: d.maths }, reasoning: { m: d.reasoning }, english: { m: d.english }, ga: { m: d.ga }, computer: { m: d.computer } };
   }
   return { id: d.id, week: d.week, plat: d.plat, member: d.member, sub: sub, cnt: d.cnt || null, rank: num(d.rank), at: d.at || '' };
 }
+// Section marks are typed from the scorecard. Whole-test counts (Correct and Wrong) are typed once per test.
+// Attempted, not attempted and accuracy are worked out from those counts.
 function computeRecord(src) {
   var s = {};
   var perSection = true, cSum = 0, wSum = 0, qSum = 0;
@@ -551,6 +577,7 @@ function computeRecord(src) {
   if (raw && num(raw.c) !== null && num(raw.w) !== null) {
     cnt = { c: num(raw.c), w: num(raw.w), q: num(raw.q) || 150 };
   } else if (perSection && qSum > 0) {
+    // older entries kept Correct and Wrong per section: add them up
     cnt = { c: cSum, w: wSum, q: qSum };
   }
   if (cnt) { cnt.att = cnt.c + cnt.w; cnt.na = cnt.q - cnt.att; cnt.acc = cnt.att > 0 ? cnt.c / cnt.att : null; }
@@ -668,7 +695,7 @@ function badgesFor(st) {
   if (st.n >= 5) b.push({ t: '🗓️ Regular', k: 'nt' });
   return b;
 }
-
+/* ================= Storage: shared database, or this device as a fallback ================= */
 function lsGet(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 async function putScore(doc) {
@@ -704,6 +731,7 @@ async function putSettings(st) {
   lsSet('mm_settings', st);
 }
 
+/* ================= Feedback ================= */
 function toast(msg, kind) {
   var t = h('div', { class: 'toast ' + (kind || '') }, [msg]);
   $('#toasts').appendChild(t);
@@ -761,6 +789,7 @@ function celebrate(text) {
   setTimeout(function () { layer.remove(); }, 4300);
 }
 
+/* ================= Shell and render engine ================= */
 function buildNav() {
   var nav = $('#nav');
   clearEl(nav);
@@ -801,8 +830,13 @@ function render(force) {
   if (!force && S.typing) { S.pending = true; return; }
   var D = derive();
   S.D = D;
+  noticeTopperChanges(D);
+  noticeCheers(D);
   renderPill(); renderBanner(); renderNav();
-  var fn = { home: viewHome, enter: viewEnter, tests: viewTests, board: viewBoard, profile: viewProfile, compare: viewCompare, history: viewHistory, team: viewTeam }[S.view] || viewHome;
+  var fn = {
+    home: viewHome, enter: viewEnter, tests: viewTests, board: viewBoard, profile: viewProfile,
+    compare: viewCompare, history: viewHistory, team: viewTeam
+  }[S.view] || viewHome;
   var node = fn(D);
   var view = $('#view');
   clearEl(view);
@@ -833,7 +867,63 @@ function applyTheme() {
   });
 }
 
-function init() {
+/* ================= Live data ================= */
+function subscribeDb() {
+  var timer = setTimeout(function () { if (!allLoaded()) { S.slow = true; renderBanner(); } }, 10000);
+  function settle() { if (allLoaded()) { clearTimeout(timer); S.slow = false; } renderPill(); renderBanner(); }
+  function onErr(e) {
+    if (e && e.code === 'revoked') setReadOnly(true);
+    if (e && e.code === 'unavailable') { S.slow = true; renderBanner(); }
+  }
+  CAP.db.collection('members').onSnapshot(function (snap) {
+    S.members = snap.docs.filter(function (d) { return d.exists; }).map(function (d) { return Object.assign({ id: d.id }, d.data()); });
+    S.loaded.members = true; settle(); scheduleRender();
+  }, onErr);
+  CAP.db.collection('scores').onSnapshot(function (snap) {
+    S.scores = snap.docs.filter(function (d) { return d.exists; }).map(function (d) { return Object.assign({ id: d.id }, d.data()); });
+    S.loaded.scores = true; settle(); scheduleRender();
+  }, onErr);
+  CAP.db.doc('settings/schedule').onSnapshot(function (snap) {
+    var d = snap.exists ? snap.data() : null;
+    S.labels = d && d.labels ? d.labels : {};
+    S.loaded.labels = true; settle(); scheduleRender();
+  }, onErr);
+  CAP.db.doc('settings/app').onSnapshot(function (snap) {
+    if (snap.exists) S.settings = Object.assign({ groupName: 'Our Mains Squad' }, snap.data());
+    S.loaded.settings = true; settle(); scheduleRender();
+  }, onErr);
+}
+
+async function init() {
+  buildNav();
+  applyTheme();
+  wireTyping();
+  render(true);
+  setupSignIn();
+  
+  // Firebase Sign-In
+document.getElementById('signInBtn').addEventListener('click', function() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    alert('Signed in as: ' + result.user.email);
+    window.location.reload();
+  }).catch(function(error) {
+    alert('Sign in failed: ' + error.message);
+  });
+});
+
+// Check auth status
+firebase.auth().onAuthStateChanged(function(user) {
+  const btn = document.getElementById('signInBtn');
+  if (user) {
+    btn.textContent = '✅';
+    btn.title = 'Signed in: ' + user.email;
+  } else {
+    btn.textContent = '🔐';
+    btn.title = 'Click to sign in with Google';
+  }
+});
+  // Setup Firestore listeners
   try {
     var firstMembersSnapshot = true;
     db.collection('members').onSnapshot(function(snap) {
@@ -873,6 +963,7 @@ function init() {
   render(true);
 }
 
+// Auto-import data if Firestore is empty
 function autoImportData() {
   var importData = {"members":[{"id":"m1","name":"Kishore","color":"#6366f1","slot":1},{"id":"m2","name":"Arun","color":"#ec4899","slot":2},{"id":"m3","name":"Srinish","color":"#14b8a6","slot":3},{"id":"m4","name":"Sathvik","color":"#f59e0b","slot":4},{"id":"m5","name":"Jahnavi","color":"#8b5cf6","slot":5},{"id":"m6","name":"Sneha","color":"#ef4444","slot":6},{"id":"m7","name":"Srinivas","color":"#0ea5e9","slot":7}],"scores":[{"id":"oct-t4-ob-m1","week":"oct-t4","plat":"ob","member":"m1","sub":{"maths":{"m":80},"reasoning":{"m":90},"english":{"m":115},"ga":{"m":39},"computer":{"m":33}},"cnt":{"c":112,"w":12,"q":130},"rank":null,"at":"2026-11-09T14:33:59.563Z"},{"id":"oct-t2-tb-m1","week":"oct-t2","plat":"tb","member":"m1","sub":{"maths":{"m":69},"reasoning":{"m":83},"english":{"m":111},"ga":{"m":30},"computer":{"m":34}},"cnt":{"c":103,"w":16,"q":130},"rank":null,"at":"2026-11-10T08:19:25.184Z"},{"id":"oct-t2-ob-m1","week":"oct-t2","plat":"ob","member":"m1","sub":{"maths":{"m":86},"reasoning":{"m":90},"english":{"m":115},"ga":{"m":38},"computer":{"m":39}},"cnt":{"c":114,"w":13,"q":130},"rank":null,"at":"2026-11-10T08:20:51.131Z"},{"id":"oct-t3-ob-m1","week":"oct-t3","plat":"ob","member":"m1","sub":{"maths":{"m":86},"reasoning":{"m":82},"english":{"m":103},"ga":{"m":49},"computer":{"m":23}},"cnt":{"c":112,"w":16,"q":130},"rank":null,"at":"2026-11-10T08:22:05.569Z"},{"id":"oct-t4-tb-m1","week":"oct-t4","plat":"tb","member":"m1","sub":{"maths":{"m":64},"reasoning":{"m":90},"english":{"m":119},"ga":{"m":40},"computer":{"m":41}},"cnt":{"c":109,"w":14,"q":130},"rank":null,"at":"2026-11-10T08:23:34.583Z"},{"id":"nov-t1-ob-m1","week":"nov-t1","plat":"ob","member":"m1","sub":{"maths":{"m":73},"reasoning":{"m":90},"english":{"m":107},"ga":{"m":45},"computer":{"m":11}},"cnt":{"c":110,"w":15,"q":130},"rank":null,"at":"2026-11-10T08:24:52.465Z"},{"id":"oct-t1-ob-m2","week":"oct-t1","plat":"ob","member":"m2","sub":{"maths":{"m":86},"reasoning":{"m":66},"english":{"m":107},"ga":{"m":24},"computer":{"m":39}},"cnt":{"c":100,"w":17,"q":130},"rank":null,"at":"2026-11-10T08:29:55.673Z"},{"id":"oct-t2-ob-m2","week":"oct-t2","plat":"ob","member":"m2","sub":{"maths":{"m":82},"reasoning":{"m":74},"english":{"m":107},"ga":{"m":34},"computer":{"m":22}},"cnt":{"c":103,"w":12,"q":130},"rank":null,"at":"2026-11-10T08:32:01.775Z"},{"id":"oct-t3-ob-m2","week":"oct-t3","plat":"ob","member":"m2","sub":{"maths":{"m":90},"reasoning":{"m":74},"english":{"m":119},"ga":{"m":41},"computer":{"m":21}},"cnt":{"c":112,"w":12,"q":130},"rank":null,"at":"2026-11-10T08:34:16.866Z"},{"id":"oct-t4-ob-m2","week":"oct-t4","plat":"ob","member":"m2","sub":{"maths":{"m":83},"reasoning":{"m":78},"english":{"m":103},"ga":{"m":49},"computer":{"m":28}},"cnt":{"c":109,"w":14,"q":130},"rank":null,"at":"2026-11-10T08:35:38.409Z"},{"id":"oct-t4-tb-m2","week":"oct-t4","plat":"tb","member":"m2","sub":{"maths":{"m":80},"reasoning":{"m":78},"english":{"m":127},"ga":{"m":25},"computer":{"m":34}},"cnt":{"c":109,"w":17,"q":130},"rank":null,"at":"2026-11-10T08:37:37.824Z"},{"id":"nov-t1-tb-m2","week":"nov-t1","plat":"tb","member":"m2","sub":{"maths":{"m":79},"reasoning":{"m":86},"english":{"m":97},"ga":{"m":38},"computer":{"m":19}},"cnt":{"c":105,"w":15,"q":130},"rank":null,"at":"2026-11-10T08:38:49.750Z"},{"id":"nov-t1-tb-m3","week":"nov-t1","plat":"tb","member":"m3","sub":{"maths":{"m":56},"reasoning":{"m":70},"english":{"m":123},"ga":{"m":22},"computer":{"m":23}},"cnt":{"c":96,"w":17,"q":130},"rank":null,"at":"2026-11-10T08:41:17.378Z"},{"id":"nov-t1-tb-m4","week":"nov-t1","plat":"tb","member":"m4","sub":{"maths":{"m":50},"reasoning":{"m":70},"english":{"m":108},"ga":{"m":43},"computer":{"m":26}},"cnt":{"c":97,"w":20,"q":130},"rank":null,"at":"2026-11-10T08:42:26.695Z"},{"id":"nov-t1-tb-m5","week":"nov-t1","plat":"tb","member":"m5","sub":{"maths":{"m":76},"reasoning":{"m":72},"english":{"m":97},"ga":{"m":24},"computer":{"m":20}},"cnt":{"c":95,"w":16,"q":130},"rank":null,"at":"2026-11-10T08:44:12.204Z"},{"id":"nov-t1-ob-m5","week":"nov-t1","plat":"ob","member":"m5","sub":{"maths":{"m":80},"reasoning":{"m":83},"english":{"m":119},"ga":{"m":36},"computer":{"m":17}},"cnt":{"c":111,"w":15,"q":130},"rank":null,"at":"2026-11-10T08:45:35.463Z"},{"id":"oct-t1-ob-m5","week":"oct-t1","plat":"ob","member":"m5","sub":{"maths":{"m":87},"reasoning":{"m":82},"english":{"m":119},"ga":{"m":24},"computer":{"m":31}},"cnt":{"c":109,"w":15,"q":130},"rank":null,"at":"2026-11-10T08:46:45.388Z"},{"id":"oct-t4-tb-m5","week":"oct-t4","plat":"tb","member":"m5","sub":{"maths":{"m":73},"reasoning":{"m":86},"english":{"m":104},"ga":{"m":29},"computer":{"m":17}},"cnt":{"c":102,"w":14,"q":130},"rank":null,"at":"2026-11-10T08:48:43.517Z"},{"id":"nov-t1-ob-m2","week":"nov-t1","plat":"ob","member":"m2","sub":{"maths":{"m":63},"reasoning":{"m":86},"english":{"m":91},"ga":{"m":42},"computer":{"m":19}},"cnt":{"c":100,"w":18,"q":130},"rank":null,"at":"2026-11-10T16:11:22.613Z"},{"id":"nov-t2-tb-m1","week":"nov-t2","plat":"tb","member":"m1","sub":{"maths":{"m":46},"reasoning":{"m":86},"english":{"m":95},"ga":{"m":27},"computer":{"m":40}},"cnt":{"c":92,"w":22,"q":130},"rank":null,"at":"2026-11-14T11:39:10.041Z"},{"id":"nov-t2-tb-m2","week":"nov-t2","plat":"tb","member":"m2","sub":{"maths":{"m":59},"reasoning":{"m":82},"english":{"m":76},"ga":{"m":24},"computer":{"m":24}},"cnt":{"c":88,"w":23,"q":130},"rank":null,"at":"2026-11-14T11:40:36.000Z"},{"id":"nov-t2-tb-m3","week":"nov-t2","plat":"tb","member":"m3","sub":{"maths":{"m":48},"reasoning":{"m":69},"english":{"m":104},"ga":{"m":12},"computer":{"m":18}},"cnt":{"c":85,"w":22,"q":130},"rank":null,"at":"2026-11-14T11:41:25.714Z"},{"id":"nov-t2-ob-m1","week":"nov-t2","plat":"ob","member":"m1","sub":{"maths":{"m":69},"reasoning":{"m":79},"english":{"m":99},"ga":{"m":52},"computer":{"m":35}},"cnt":{"c":106,"w":19,"q":130},"rank":null,"at":"2026-11-14T17:44:47.543Z"},{"id":"nov-t2-ob-m2","week":"nov-t2","plat":"ob","member":"m2","sub":{"maths":{"m":68},"reasoning":{"m":67},"english":{"m":111},"ga":{"m":46},"computer":{"m":31}},"cnt":{"c":104,"w":20,"q":130},"rank":null,"at":"2026-11-14T17:46:03.475Z"},{"id":"nov-t2-tb-m6","week":"nov-t2","plat":"tb","member":"m6","sub":{"maths":{"m":59},"reasoning":{"m":63},"english":{"m":118},"ga":{"m":25},"computer":{"m":26}},"cnt":{"c":95,"w":20,"q":130},"rank":null,"at":"2026-11-15T12:44:49.653Z"}]};
   importData.members.forEach(function(m) { db.collection('members').doc(m.id).set({name: m.name, color: m.color, slot: m.slot}).catch(function(e) { console.log('Import member error:', e); }); });
@@ -881,23 +972,1647 @@ function autoImportData() {
   setTimeout(function() { toast('✅ Data imported to Firebase!', 'ok'); }, 1000);
 }
 
-function viewHome(D) {
-  if (!S.members.length) return h('div', { class: 'empty' }, [h('b', {}, ['👋 Welcome!']), 'No members yet. Start by adding your squad members in "Team and rules".']);
-  return h('div', { class: 'stack' }, [
-    h('div', { class: 'motto' }, [MOTTOS[Math.floor(Math.random() * MOTTOS.length)]])
+/* ================= Shared view helpers ================= */
+var BAND_COLOR = { O: '#059669', GS: '#65a30d', OK: '#d97706', NI: '#e11d48' };
+var BAND_ORDER = ['O', 'GS', 'OK', 'NI'];
+var BAND_RANK = { NI: 0, OK: 1, GS: 2, O: 3 };
+var SUBJ_ICON = { maths: '🧮', reasoning: '🧩', english: '📘', ga: '🌍', computer: '💻' };
+var CHEER_PRIORITY = { best: 1, outstanding: 2, band: 3, topped: 4, streak: 5, computer: 6, accuracy: 7 };
+function field(label, control) { return h('div', { class: 'field' }, [h('label', {}, [label]), control]); }
+function legend(items) { return h('div', { class: 'legend' }, items.map(function (t) { return h('span', {}, [t]); })); }
+function tile(icon, label, big, sub, extra) {
+  return h('div', { class: 'card tile pop' }, [
+    h('div', { class: 'row between' }, [h('span', { class: 'tile-ic', 'aria-hidden': 'true' }, [icon]), extra || null]),
+    h('div', { class: 'label' }, [label]),
+    h('div', { class: 'big' }, [big]),
+    h('div', { class: 'hint' }, [sub])
   ]);
 }
-function viewEnter(D) { return h('div', { class: 'stack' }, []); }
-function viewTests(D) { return h('div', { class: 'stack' }, []); }
-function viewBoard(D) { return h('div', { class: 'stack' }, []); }
-function viewProfile(D) { return h('div', { class: 'stack' }, []); }
-function viewCompare(D) { return h('div', { class: 'stack' }, []); }
-function viewHistory(D) { return h('div', { class: 'stack' }, []); }
-function viewTeam(D) { return h('div', { class: 'stack' }, []); }
+function recAcc(r) { return r.cnt ? r.cnt.acc : null; }
+function plural(n, word) { return n + ' ' + (n === 1 ? word : word + 's'); }
+function chip_(text, kind) { return h('span', { class: 'chip ' + (kind || '') }, [text]); }
+function shortTest(w, p) { return labelOf(w).split(' (')[0] + ' · ' + PLAT_BY[p].name; }
+function bestTotalRec(st) {
+  var b = null;
+  st.recs.forEach(function (r) { if (!b || r.total > b.total) b = r; });
+  return b;
+}
+function bestSingle(st, k) {
+  var b = null;
+  st.recs.forEach(function (r) {
+    var v = r.s[k].m;
+    if (v !== null && (b === null || v > b.v)) b = { v: v, rec: r };
+  });
+  return b;
+}
+// Everyone ranked by one measure, highest first. Candidates with no tests are left out.
+function rankedBy(D, pick) {
+  var out = [];
+  S.members.forEach(function (m) {
+    var st = statsFor(m.id, D);
+    if (!st.n) return;
+    var v = pick(st);
+    if (v !== null && v !== undefined && !isNaN(v)) out.push({ m: m, st: st, v: v });
+  });
+  out.sort(function (a, b) { return (b.v - a.v) || a.m.name.localeCompare(b.m.name); });
+  return out;
+}
+function topperOf(ranked) {
+  if (!ranked.length) return null;
+  var top = ranked[0].v;
+  var list = ranked.filter(function (x) { return Math.abs(x.v - top) < 1e-9; });
+  var second = ranked.filter(function (x) { return x.v < top - 1e-9; })[0] || null;
+  return { value: top, list: list, second: second };
+}
+function toppersFor(D) {
+  var out = { total: topperOf(rankedBy(D, function (st) { return st.n ? st.total : null; })), subject: {} };
+  SUBJECTS.forEach(function (sj) { out.subject[sj.k] = topperOf(rankedBy(D, function (st) { return st.subAvg[sj.k]; })); });
+  return out;
+}
+// Only the identity of each topper is compared, so a topper's own score moving does not count as a change.
+function topperSnapshot(D) {
+  var t = toppersFor(D);
+  function pack(tp) {
+    return tp ? { key: tp.list.map(function (x) { return x.m.id; }).sort().join('+'), names: tp.list.map(function (x) { return x.m.name; }).join(' & '), value: tp.value } : null;
+  }
+  var snap = { total: pack(t.total), subject: {} };
+  SUBJECTS.forEach(function (sj) { snap.subject[sj.k] = pack(t.subject[sj.k]); });
+  return snap;
+}
+function noticeTopperChanges(D) {
+  var cur = topperSnapshot(D), prev = S.topSnap;
+  S.topSnap = cur;
+  if (!prev) return;
+  if (prev.total && cur.total && prev.total.key !== cur.total.key) {
+    toast('🏆 New total topper: ' + cur.total.names + ' (' + cur.total.value.toFixed(1) + ')', 'ok');
+  }
+  SUBJECTS.forEach(function (sj) {
+    var a = prev.subject[sj.k], b = cur.subject[sj.k];
+    if (a && b && a.key !== b.key) toast(SUBJ_ICON[sj.k] + ' New ' + sj.label.replace(' (GK)', '') + ' topper: ' + b.names + ' (' + b.value.toFixed(1) + ')', 'ok');
+  });
+}
+function fmtWhen(iso) {
+  var d = new Date(iso);
+  if (isNaN(d.getTime())) return '';
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) + ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+}
+function ago(iso) {
+  var t = Date.parse(iso);
+  if (isNaN(t)) return '';
+  var mins = Math.round((Date.now() - t) / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + ' min ago';
+  if (mins < 24 * 60) return Math.round(mins / 60) + ' h ago';
+  return fmtWhen(iso);
+}
+function isFresh(iso) {
+  var t = Date.parse(iso);
+  return !isNaN(t) && Date.now() - t < 10 * 60 * 1000;
+}
+function podium(rows) {
+  var medals = ['🥇', '🥈', '🥉'];
+  var order = [1, 0, 2].filter(function (i) { return rows[i]; });
+  return h('div', { class: 'podium' }, order.map(function (i) {
+    var r = rows[i];
+    return h('div', { class: 'pod p' + (i + 1) }, [
+      h('div', { class: 'medal', 'aria-hidden': 'true' }, [medals[i]]),
+      h('div', { style: { display: 'flex', justifyContent: 'center', marginTop: '8px' } }, [avatar(r.m, 46)]),
+      h('div', { class: 'name' }, [r.m.name]),
+      h('div', { class: 'score' }, [r.st.total.toFixed(1)]),
+      h('div', { style: { display: 'flex', justifyContent: 'center', marginTop: '4px' } }, [bandChip(bandOf('total', r.st.total))])
+    ]);
+  }));
+}
+function onboarding() {
+  function step(n, t, d) {
+    return h('div', { style: { background: 'var(--bg2)', borderRadius: '14px', padding: '14px' } }, [
+      h('div', { style: { fontWeight: '900', color: 'var(--brand)', fontSize: '1.2rem' } }, [n]),
+      h('b', {}, [t]),
+      h('div', { class: 'muted small' }, [d])
+    ]);
+  }
+  return h('div', { class: 'card' }, [
+    h('h2', {}, ['Getting started']),
+    h('p', { class: 'sub' }, ['Each candidate tracks their own scores. The toppers and cheers update the moment anyone saves.']),
+    h('div', { class: 'grid g3' }, [
+      step('1', 'Add the candidates', 'Team and rules: list everyone who is preparing.'),
+      step('2', 'Enter your own test', 'My scores: pick your name, type your five section marks, then your Correct and Wrong for the whole test.'),
+      step('3', 'Add ranks later', 'About 3 days after a test, enter your final rank.')
+    ])
+  ]);
+}
+function pendingCard(pend) {
+  return h('div', { class: 'card' }, [
+    h('h2', {}, ['Ranks to enter']),
+    h('p', { class: 'sub' }, ['Final ranks come about 3 days after each test']),
+    pend.length ? h('ul', { class: 'plain' }, pend.slice(0, 8).map(function (t) {
+      return h('li', {}, [
+        h('span', {}, [testLabel(t.week, t.plat)]),
+        h('span', { class: 'row gap' }, [
+          h('span', { class: 'chip warn' }, [t.ranks + '/' + t.entries + ' ranks']),
+          h('button', { class: 'btn small ghost', type: 'button', onclick: function () { openEnter(t.week, t.plat, 'ranks'); } }, ['Enter ranks'])
+        ])
+      ]);
+    })) : h('div', { class: 'empty', style: { padding: '18px' } }, [h('b', {}, ['All caught up']), 'No ranks are waiting.'])
+  ]);
+}
+function heatMonths(D, id) {
+  var cells = heatMap(D, id);
+  var wrap = h('div', { class: 'wall-months' });
+  MONTHS.forEach(function (mo, mi) {
+    var grid = h('div', { class: 'wall-grid' });
+    for (var i = mi * 12; i < mi * 12 + 12; i++) {
+      var c = cells[i], r = c.r;
+      var title = labelOf(c.t.week) + ' · ' + PLAT_BY[c.t.plat].name + ': ' + (r ? r.total + ' (' + BAND_INFO[r.tband].name + ')' : 'no score yet');
+      grid.appendChild(h('span', { class: 'hc ' + (r && r.tband ? 'hc-' + r.tband : 'hc-none'), title: title, 'aria-label': title }, []));
+    }
+    wrap.appendChild(h('div', { class: 'wall-col' }, [h('div', { class: 'wall-lab' }, [mo]), grid]));
+  });
+  return wrap;
+}
+function wallCard(D) {
+  var rows = S.members.slice().sort(bySlot).map(function (m) {
+    var st = statsFor(m.id, D);
+    return h('div', { class: 'wall-row' }, [
+      h('div', { class: 'who' }, [avatar(m, 30), h('div', {}, [h('b', {}, [m.name]), h('div', { class: 'muted small' }, [st.n + ' of ' + TOTAL_TESTS + ' tests'])])]),
+      heatMonths(D, m.id)
+    ]);
+  });
+  return h('div', { class: 'card' }, [
+    h('h2', {}, ['Test-by-test wall']),
+    h('p', { class: 'sub' }, ['One square per platform test, for each candidate. Colour shows the band of that total.']),
+    h('div', { class: 'legend' }, [
+      h('span', {}, [h('i', { class: 'hc hc-O' }), 'Outstanding 350+']),
+      h('span', {}, [h('i', { class: 'hc hc-GS' }), 'Good 325–349']),
+      h('span', {}, [h('i', { class: 'hc hc-OK' }), 'Okay 275–324']),
+      h('span', {}, [h('i', { class: 'hc hc-NI' }), 'Needs Improvement below 275']),
+      h('span', {}, [h('i', { class: 'hc hc-none' }), 'No score yet'])
+    ]),
+    rows.length ? h('div', { class: 'wall' }, rows) : h('div', { class: 'empty' }, ['Add candidates and enter scores to fill the wall.'])
+  ]);
+}
+function liveBar(D) {
+  var latest = D.recs.slice().sort(function (a, b) { return a.at < b.at ? 1 : (a.at > b.at ? -1 : 0); })[0];
+  var text = latest
+    ? nameOf(latest.member, D) + ' entered ' + shortTest(latest.week, latest.plat) + ' · total ' + latest.total + ' (' + BAND_INFO[latest.tband].name + ')'
+    : 'Waiting for the first score';
+  var when = latest && latest.at ? fmtWhen(latest.at) : '';
+  return h('div', { class: 'livebar' }, [
+    h('span', { class: 'live-dot', 'aria-hidden': 'true' }, []),
+    h('b', {}, [S.mode === 'db' ? 'Live' : 'Saved on this device']),
+    h('span', { class: 'muted' }, [text]),
+    when ? h('span', { class: 'muted small', style: { marginLeft: 'auto' } }, ['latest entry ' + when]) : null
+  ]);
+}
+function totalTopperCard(t, D) {
+  if (!t) return h('div', { class: 'card empty' }, [h('b', {}, ['No total topper yet']), 'The topper appears here once a candidate has a full test on record.']);
+  var first = t.list[0];
+  var best = bestTotalRec(first.st);
+  var lead = t.second ? t.value - t.second.v : null;
+  var names = t.list.map(function (x) { return x.m.name; }).join(' & ');
+  return h('div', { class: 'card topper-hero' }, [
+    h('div', { class: 'row between' }, [
+      h('div', { class: 'row gap', style: { alignItems: 'center' } }, [
+        t.list.length === 1 ? avatar(first.m, 64) : h('span', { class: 'row' }, t.list.map(function (x) { return avatar(x.m, 48); })),
+        h('div', {}, [
+          h('div', { class: 'kicker-dark' }, ['🏆 Total topper · average out of 390']),
+          h('h2', { class: 'topper-name' }, [names + (t.list.length > 1 ? ' (shared top)' : '')]),
+          h('div', { class: 'muted small' }, [first.st.n + ' test' + (first.st.n === 1 ? '' : 's') + ' on record' + (first.st.n < 3 ? ' · small sample' : '')])
+        ])
+      ]),
+      bandChip(bandOf('total', t.value))
+    ]),
+    h('div', { class: 'topper-stats' }, [
+      h('div', {}, [h('div', { class: 'big-n' }, [t.value.toFixed(1)]), h('div', { class: 'label-s' }, ['total average'])]),
+      h('div', {}, [h('div', { class: 'big-n sm' }, [best ? String(best.total) : '–']), h('div', { class: 'label-s' }, ['best single test' + (best ? ' · ' + shortTest(best.week, best.plat) : '')])]),
+      h('div', {}, [h('div', { class: 'big-n sm' }, [lead === null ? '–' : '+' + lead.toFixed(1)]), h('div', { class: 'label-s' }, [t.second ? 'lead over ' + t.second.m.name : 'no challenger yet'])]),
+      h('div', {}, [h('div', { class: 'big-n sm' }, [pct(first.st.accMains)]), h('div', { class: 'label-s' }, ['overall accuracy'])])
+    ])
+  ]);
+}
+function subjectTopperCard(sj, t) {
+  var head = h('div', { class: 'row between' }, [
+    h('span', { class: 'muted small' }, [SUBJ_ICON[sj.k] + ' ' + sj.label + (sj.k === 'computer' ? ' (qualifying)' : '')]),
+    t ? bandChip(bandOf(sj.k, t.value)) : null
+  ]);
+  if (!t) return h('div', { class: 'card scard' }, [head, h('div', { class: 'muted small' }, ['No marks yet in this section.'])]);
+  var first = t.list[0];
+  var bs = bestSingle(first.st, sj.k);
+  var tests = first.st.recs.filter(function (r) { return r.s[sj.k].m !== null; }).length;
+  var lead = t.second ? t.value - t.second.v : null;
+  var detail = t.list.length > 1 ? 'shared top' : (t.second ? '+' + lead.toFixed(1) + ' over ' + t.second.m.name : 'no challenger yet');
+  return h('div', { class: 'card scard' }, [
+    head,
+    h('div', { class: 'row gap', style: { marginTop: '6px' } }, [avatar(first.m, 30), h('b', { class: 'scard-name' }, [t.list.map(function (x) { return x.m.name; }).join(' & ')])]),
+    h('div', { class: 'big-s' }, [t.value.toFixed(1), h('span', { class: 'of' }, [' / ' + sj.max])]),
+    h('div', { class: 'muted small' }, ['best ' + (bs ? bs.v + ' · ' + shortTest(bs.rec.week, bs.rec.plat) : '–')]),
+    h('div', { class: 'muted small' }, [tests + ' test' + (tests === 1 ? '' : 's') + ' · ' + detail])
+  ]);
+}
+function attemptBlock(st) {
+  if (!st.nCW) return h('div', { class: 'help' }, ['💡 Add Correct and Wrong for the whole test to see attempts and accuracy.']);
+  return h('div', { class: 'attempt-grid' }, [
+    h('div', { class: 'att' }, [h('div', { class: 'big-n sm' }, [fmtN(st.attMains)]), h('div', { class: 'label-s' }, ['attempted'])]),
+    h('div', { class: 'att' }, [h('div', { class: 'big-n sm' }, [fmtN(st.correctMains)]), h('div', { class: 'label-s' }, ['correct · +3 each'])]),
+    h('div', { class: 'att' }, [h('div', { class: 'big-n sm' }, [fmtN(st.wrongMains)]), h('div', { class: 'label-s' }, ['wrong · −1 each'])]),
+    h('div', { class: 'att' }, [h('div', { class: 'big-n sm' }, [fmtN(st.skippedMains)]), h('div', { class: 'label-s' }, ['not attempted'])])
+  ]);
+}
+function candidateCard(D, m, st, tops, pos) {
+  var totalGap = tops.total ? tops.total.value - st.total : null;
+  var isTop = pos === 1;
+  var last = st.recs[st.recs.length - 1];
+  var prev = st.recs.length > 1 ? st.recs[st.recs.length - 2] : null;
+  var arrow = '';
+  if (prev) {
+    arrow = last.total > prev.total ? '▲ +' + (last.total - prev.total) : (last.total < prev.total ? '▼ −' + (prev.total - last.total) : '● same');
+  }
+  var subRows = SUBJECTS.map(function (sj) {
+    var v = st.subAvg[sj.k], t = tops.subject[sj.k];
+    var gap = v !== null && t ? t.value - v : null;
+    var topNow = gap !== null && Math.abs(gap) < 1e-9;
+    return h('div', { class: 'csub' }, [
+      h('span', {}, [SUBJ_ICON[sj.k] + ' ' + sj.label.replace(' (GK)', '')]),
+      h('b', { class: 'n' }, [v === null ? '–' : v.toFixed(1)]),
+      bandChip(bandOf(sj.k, v)),
+      h('span', { class: 'csub-gap' + (topNow ? ' top' : '') }, [v === null ? '' : (topNow ? '★ topper' : '−' + gap.toFixed(1))])
+    ]);
+  });
+  return h('div', { class: 'cand' + (isTop ? ' cand-top' : '') }, [
+    h('div', { class: 'row between' }, [
+      h('div', { class: 'row gap' }, [avatar(m, 42), h('div', {}, [h('b', { class: 'cand-name' }, [m.name]), h('div', { class: 'muted small' }, [st.n + ' tests · ' + st.wins + ' group win' + (st.wins === 1 ? '' : 's')])])]),
+      chip_('#' + pos + ' in total', isTop ? 'ok' : '')
+    ]),
+    h('div', { class: 'cand-total row between' }, [
+      h('div', { class: 'row gap', style: { alignItems: 'baseline' } }, [h('span', { class: 'cand-big' }, [st.total.toFixed(1)]), h('span', { class: 'muted' }, ['/ 390'])]),
+      h('div', { class: 'row gap' }, [bandChip(bandOf('total', st.total)), h('span', { class: 'muted small' }, [totalGap === null ? '' : (isTop ? '★ total topper' : '−' + totalGap.toFixed(1) + ' to the top')])])
+    ]),
+    h('div', { class: 'muted small' }, ['Last test: ' + last.total + ' · ' + shortTest(last.week, last.plat) + (arrow ? '   ' + arrow : '')]),
+    h('div', { class: 'cand-subs' }, subRows),
+    h('div', { class: 'cand-foot' }, [
+      h('span', {}, ['Accuracy ' + pct(st.accMains)]),
+      h('span', {}, [st.nCW ? 'Lost ' + st.wrongMains + ' marks to wrong answers' : 'Correct and Wrong not entered yet']),
+      h('span', {}, [st.qualKnown ? 'Computer ' + st.qualYes + ' of ' + st.qualKnown + ' qualifying' : 'Computer not entered']),
+      h('span', {}, [last.total >= TARGET ? 'Outstanding last test ✓' : (TARGET - last.total) + ' more for Outstanding'])
+    ]),
+    h('div', { class: 'badges' }, badgesFor(st).map(function (b) { return chip_(b.t, b.k); })),
+    h('button', { class: 'btn ghost small', type: 'button', style: { alignSelf: 'flex-start' }, onclick: function () { S.profileId = m.id; go('profile'); } }, ['Open full profile'])
+  ]);
+}
+function candidatesCard(D, tops) {
+  var lb = board(D);
+  var cards = lb.map(function (r, i) { return candidateCard(D, r.m, r.st, tops, i + 1); });
+  S.members.forEach(function (m) {
+    if (!statsFor(m.id, D).n) {
+      cards.push(h('div', { class: 'cand cand-empty' }, [
+        h('div', { class: 'row gap' }, [avatar(m, 42), h('b', { class: 'cand-name' }, [m.name])]),
+        h('div', { class: 'muted small' }, ['No scores yet. Their card appears after the first test is entered.'])
+      ]));
+    }
+  });
+  return h('div', { class: 'card' }, [
+    h('h2', {}, ['Candidate details']),
+    h('p', { class: 'sub' }, ['Each person’s own numbers, against the top of the team in every section. Cards refresh the moment anyone saves.']),
+    cards.length ? h('div', { class: 'cand-grid' }, cards) : h('div', { class: 'empty' }, ['Add candidates under Team and rules.'])
+  ]);
+}
+function recentCard(D) {
+  var recent = D.recs.slice().sort(function (a, b) { return a.at < b.at ? 1 : (a.at > b.at ? -1 : 0); }).slice(0, 8);
+  return h('div', { class: 'card' }, [
+    h('h2', {}, ['Latest entries']),
+    h('p', { class: 'sub' }, ['Who entered what, newest first']),
+    recent.length ? h('ul', { class: 'plain' }, recent.map(function (r) {
+      var m = D.mem[r.member];
+      return h('li', {}, [
+        h('span', { class: 'row gap' }, [avatar(m, 28), h('b', {}, [m.name]), h('span', { class: 'muted small' }, [shortTest(r.week, r.plat)])]),
+        h('span', { class: 'row gap' }, [h('b', {}, [String(r.total)]), bandChip(r.tband)])
+      ]);
+    })) : h('div', { class: 'empty', style: { padding: '18px' } }, ['No entries yet'])
+  ]);
+}
 
-buildNav();
-applyTheme();
-wireTyping();
+/* ================= Live cheers ================= */
+// Every milestone a candidate has reached, newest first. Each one is worked out from the saved scores.
+function cheerEventsFor(D) {
+  var out = [];
+  S.members.forEach(function (m) {
+    var st = statsFor(m.id, D);
+    if (!st.n) return;
+    var rs = st.recs, streak = 0, qstreak = 0;
+    rs.forEach(function (r, i) {
+      var prev = i > 0 ? rs[i - 1] : null;
+      var earlier = rs.slice(0, i);
+      var prevBest = earlier.length ? Math.max.apply(null, earlier.map(function (x) { return x.total; })) : null;
+      var base = m.id + '|' + r.week + '|' + r.plat;
+      var when = r.at || '';
+      function add(kind, icon, text) {
+        out.push({ key: base + '|' + kind, kind: kind, icon: icon, text: text, member: m.id, name: m.name, at: when });
+      }
+      if (prevBest !== null && r.total > prevBest) add('best', '🏆', 'New personal best: ' + r.total + ' in ' + shortTest(r.week, r.plat) + ' (was ' + prevBest + ')');
+      if (r.tband === 'O') add('outstanding', '😍', 'Outstanding total of ' + r.total + ' in ' + shortTest(r.week, r.plat));
+      if (prev && BAND_RANK[r.tband] > BAND_RANK[prev.tband]) add('band', '⬆️', 'Moved up to ' + BAND_INFO[r.tband].name + ' in ' + shortTest(r.week, r.plat));
+      if (prev && r.total - prev.total >= 20) add('jump', '🚀', '+' + (r.total - prev.total) + ' marks on the previous test');
+      if (r.cnt && r.cnt.att >= 20 && r.cnt.acc >= 0.9) add('accuracy', '🎯', Math.round(r.cnt.acc * 100) + '% accuracy in ' + shortTest(r.week, r.plat));
+      streak = BAND_RANK[r.tband] >= 2 ? streak + 1 : 0;
+      if (streak === 3 || streak === 5) add('streak', '🔥', streak + ' Good Scores in a row');
+      qstreak = r.qual === true ? qstreak + 1 : 0;
+      if (qstreak === 3) add('computer', '🛡️', 'Computer qualified in 3 tests in a row');
+      if (r.gsize >= 2 && r.gpos === 1) add('topped', '🥇', 'Topped the group in ' + shortTest(r.week, r.plat));
+    });
+  });
+  out.sort(function (a, b) { return a.at < b.at ? 1 : (a.at > b.at ? -1 : (a.key < b.key ? 1 : -1)); });
+  return out;
+}
+// The cheer card for one candidate: a headline, up to four personal lines, and progress towards 350.
+function cheerFor(D, m) {
+  var st = statsFor(m.id, D);
+  if (!st.n) {
+    return { headline: '🌱 Ready when you are', pct: 0, last: null, fresh: false,
+      lines: [{ icon: '✨', text: 'Enter your first test and your cheer card comes alive.' }] };
+  }
+  var rs = st.recs, last = rs[rs.length - 1], prev = rs.length > 1 ? rs[rs.length - 2] : null;
+  var evs = cheerEventsFor(D).filter(function (e) { return e.member === m.id; });
+  var headline;
+  if (last.tband === 'O') headline = '😍 Outstanding! Crushing it!';
+  else if (prev && last.total > prev.total) headline = '📈 Climbing up!';
+  else if (st.streak >= 3) headline = '🔥 On fire! Consistency wins';
+  else if (st.n >= 3 && st.sd !== null && st.sd <= 8) headline = '🧘 Calm and steady';
+  else if (st.best - st.worst > 40) headline = '🎢 Variable - find stability';
+  else headline = '🌱 Building momentum';
+  var lines = [];
+  if (evs.length) lines.push({ icon: evs[0].icon, text: evs[0].text + ' · ' + ago(evs[0].at) });
+  if (prev) {
+    var d = last.total - prev.total;
+    if (d > 10) lines.push({ icon: '📈', text: 'Big jump! Up ' + d + ' from ' + prev.total + ' to ' + last.total + '. Momentum is real.' });
+    else if (d > 0) lines.push({ icon: '📈', text: 'Up ' + d + ' on last test: ' + prev.total + ' → ' + last.total + '. Keep climbing.' });
+    else if (d === 0) lines.push({ icon: '🧱', text: 'Steady at ' + last.total + '. Consistency is power. Your level is locked in.' });
+    else if (d > -10) lines.push({ icon: '💪', text: 'Dip from ' + prev.total + ' to ' + last.total + '. Your best is ' + st.best + '—you can return there.' });
+    else lines.push({ icon: '💪', text: 'Big drop from ' + prev.total + ' to ' + last.total + '. Review what changed. Your ' + st.best + ' is still within reach.' });
+  } else {
+    lines.push({ icon: '🚀', text: 'First test: ' + last.total + '. Fresh start. Use this as your baseline to beat.' });
+  }
+  var tops = toppersFor(D);
+  var lb = board(D), rankPos = lb.findIndex(function (r) { return r.m.id === m.id; }) + 1;
+  var gapToTop = lb[0] ? lb[0].st.total - st.total : 0;
+  if (gapToTop > 0 && gapToTop <= 30) {
+    lines.push({ icon: '🏃', text: 'Just ' + gapToTop.toFixed(1) + ' marks behind the leader. Close enough to catch up next test.' });
+  } else if (gapToTop > 30 && gapToTop <= 60) {
+    lines.push({ icon: '🎯', text: 'Leader is ' + gapToTop.toFixed(1) + ' marks ahead. Four solid tests close that gap completely.' });
+  }
+  var goal;
+  if (last.total >= TARGET) goal = 'Maintain this! Every 350+ keeps your average strong.';
+  else if (last.total >= BANDS.total.gs) goal = 'Target: 350. You need ' + (TARGET - last.total).toFixed(0) + ' more marks.';
+  else if (last.total >= BANDS.total.ok) goal = 'Jump to 325+ next test. You\'re ' + (BANDS.total.gs - last.total).toFixed(0) + ' away.';
+  else goal = 'Aim for 275+ next time. Clear target: ' + (BANDS.total.ok - last.total).toFixed(0) + ' more marks.';
+  lines.push({ icon: '🎯', text: goal });
+  var topSub = SUBJECTS.filter(function (sj) {
+    var t = tops.subject[sj.k];
+    return t && t.list.some(function (x) { return x.m.id === m.id; });
+  })[0];
+  if (topSub) {
+    lines.push({ icon: '🏅', text: 'Topper in ' + topSub.label.replace(' (GK)', '') + ' (' + tops.subject[topSub.k].value.toFixed(1) + '). Defend this strength.' });
+  } else if (st.accMains !== null && st.nCW >= 2) {
+    var accPct = Math.round(st.accMains * 100);
+    if (accPct >= 80) lines.push({ icon: '🎯', text: 'Sharp accuracy: ' + accPct + '% across ' + fmtN(st.attMains) + ' questions. Quality over quantity.' });
+    else lines.push({ icon: '🎯', text: 'Accuracy ' + accPct + '% on ' + fmtN(st.attMains) + ' attempted. Reduce silly mistakes +5% to gain 15 marks.' });
+  } else {
+    var weakest = MAINS.filter(function (k) { return st.subAvg[k] !== null; }).sort(function (a, b) {
+      return (st.subAvg[a] / SUBJ_BY[a].max) - (st.subAvg[b] / SUBJ_BY[b].max);
+    })[0];
+    var strongest = MAINS.filter(function (k) { return st.subAvg[k] !== null; }).sort(function (a, b) {
+      return (st.subAvg[b] / SUBJ_BY[b].max) - (st.subAvg[a] / SUBJ_BY[a].max);
+    })[0];
+    if (weakest && strongest) {
+      lines.push({ icon: '🌱', text: 'Weakest: ' + SUBJ_BY[weakest].label.replace(' (GK)', '') + ' (' + st.subAvg[weakest].toFixed(0) + '). Fix this, gain 20+ marks.' });
+    }
+  }
+  return { headline: headline, pct: Math.min(100, last.total / TARGET * 100), last: last.total, fresh: isFresh(last.at), lines: lines.slice(0, 4) };
+}
+function cheerCard(D, m) {
+  var c = cheerFor(D, m);
+  return h('div', { class: 'cheer-card' + (c.fresh ? ' fresh' : '') }, [
+    h('div', { class: 'row between' }, [
+      h('div', { class: 'row gap' }, [avatar(m, 40), h('b', { class: 'cand-name' }, [m.name])]),
+      chip_(c.headline, 'nt'),
+      c.fresh ? chip_('NEW', 'new') : null
+    ]),
+    h('div', { class: 'cheer-lines' }, c.lines.map(function (ln) {
+      return h('div', { class: 'cheer-line' }, [h('span', { class: 'cl-ic', 'aria-hidden': 'true' }, [ln.icon]), h('span', {}, [ln.text])]);
+    })),
+    h('div', {}, [
+      h('div', { class: 'bar sm' + (c.last !== null && c.last >= TARGET ? ' gold' : '') }, [h('span', { style: { width: c.pct.toFixed(1) + '%' } })]),
+      h('div', { class: 'muted small', style: { marginTop: '4px' } }, [c.last === null ? 'No test yet' : 'last test ' + c.last + ' · Outstanding line 350'])
+    ])
+  ]);
+}
+function cheerSection(D) {
+  return h('div', { class: 'card' }, [
+    h('div', { class: 'row between' }, [
+      h('div', {}, [
+        h('h2', {}, ['Live insights for every candidate']),
+        h('p', { class: 'sub' }, ['Personal, fresh, and updated the moment a score lands. Everyone gets something to be proud of.'])
+      ]),
+      h('span', { class: 'chip ok' }, ['live'])
+    ]),
+    S.members.length ? h('div', { class: 'cheer-grid' }, S.members.slice().sort(bySlot).map(function (m) { return cheerCard(D, m); }))
+      : h('div', { class: 'empty' }, ['Add candidates to start their cheer cards.'])
+  ]);
+}
+function cheerFeedCard(D) {
+  var ev = cheerEventsFor(D).slice(0, 8);
+  return h('div', { class: 'card' }, [
+    h('div', { class: 'row between' }, [
+      h('div', {}, [h('h2', {}, ['Live cheers']), h('p', { class: 'sub' }, ['The latest wins across the group, newest first'])]),
+      h('span', { class: 'chip ok' }, ['live'])
+    ]),
+    ev.length ? h('ul', { class: 'plain cheer-feed' }, ev.map(function (e) {
+      var m = D.mem[e.member];
+      return h('li', { class: isFresh(e.at) ? 'fresh' : '' }, [
+        h('span', { class: 'row gap' }, [
+          avatar(m, 30),
+          h('div', {}, [h('div', {}, [h('b', {}, [e.name]), ' ' + e.icon + ' ' + e.text]), h('div', { class: 'muted small' }, [ago(e.at)])])
+        ])
+      ]);
+    })) : h('div', { class: 'empty', style: { padding: '18px' } }, [h('b', {}, ['The first cheer is on its way']), 'Milestones appear here as soon as they are reached.'])
+  ]);
+}
+// A toast for each new milestone, most important first. The first load only records what already exists.
+function noticeCheers(D) {
+  if (!allLoaded()) return;
+  var evs = cheerEventsFor(D);
+  if (!S.cheerReady) {
+    S.seenCheers = {};
+    evs.forEach(function (e) { S.seenCheers[e.key] = true; });
+    S.cheerReady = true;
+    return;
+  }
+  var fresh = evs.filter(function (e) { return !S.seenCheers[e.key] && CHEER_PRIORITY[e.kind]; });
+  fresh.forEach(function (e) { S.seenCheers[e.key] = true; });
+  fresh.sort(function (a, b) { return CHEER_PRIORITY[a.kind] - CHEER_PRIORITY[b.kind]; }).slice(0, 2).forEach(function (e) {
+    toast(e.icon + ' ' + e.name + ': ' + e.text, 'ok');
+  });
+}
+
+/* ================= Home page ================= */
+function viewHome(D) {
+  var root = h('div', { class: 'stack' });
+  var tops = toppersFor(D);
+  root.appendChild(liveBar(D));
+  if (S.members.length < 2 || D.recs.length === 0) root.appendChild(onboarding());
+  root.appendChild(totalTopperCard(tops.total, D));
+  root.appendChild(h('div', { class: 'grid g5' }, SUBJECTS.map(function (sj) { return subjectTopperCard(sj, tops.subject[sj.k]); })));
+  root.appendChild(cheerSection(D));
+  root.appendChild(cheerFeedCard(D));
+  root.appendChild(candidatesCard(D, tops));
+  root.appendChild(wallCard(D));
+  root.appendChild(recentCard(D));
+  root.appendChild(h('div', { class: 'motto' }, ['💡 ' + MOTTOS[new Date().getDate() % MOTTOS.length]]));
+  return root;
+}
+
+/* ================= Enter scores: my scores, whole team, ranks ================= */
+function openEnter(w, p, mode, memberId) {
+  S.enter = { week: w, plat: p, mode: mode, member: memberId || S.enter.member || null };
+  S.enterTouched = true;
+  S.draft = null;
+  go('enter');
+}
+function clearInvalid() {
+  Array.prototype.forEach.call(document.querySelectorAll('[aria-invalid]'), function (x) { x.removeAttribute('aria-invalid'); });
+}
+function prefillRow(rec) {
+  var v = { marks: {}, c: '', w: '', rank: '', absent: false };
+  SUBJECTS.forEach(function (sj) {
+    var x = rec ? rec.s[sj.k] : null;
+    v.marks[sj.k] = x && x.m !== null ? String(x.m) : '';
+  });
+  v.c = rec && rec.cnt ? String(rec.cnt.c) : '';
+  v.w = rec && rec.cnt ? String(rec.cnt.w) : '';
+  v.rank = rec && rec.rank !== null ? String(rec.rank) : '';
+  return v;
+}
+function readRow(tr) {
+  var v = { marks: {}, c: '', w: '', rank: '', absent: false };
+  SUBJECTS.forEach(function (sj) {
+    var x = tr.querySelector('[data-f="m-' + sj.k + '"]');
+    v.marks[sj.k] = x ? x.value : '';
+  });
+  var c = tr.querySelector('[data-f="c"]'), w = tr.querySelector('[data-f="w"]');
+  var r = tr.querySelector('[data-f="rank"]'), a = tr.querySelector('[data-f="absent"]');
+  v.c = c ? c.value : '';
+  v.w = w ? w.value : '';
+  v.rank = r ? r.value : '';
+  v.absent = !!(a && a.checked);
+  return v;
+}
+function evalMark(sj, raw) {
+  var t = trim(raw);
+  if (t === '') return { status: 'empty' };
+  var n = Number(t);
+  if (!isInt(n) || n < -sj.q || n > 3 * sj.q) return { status: 'bad', msg: 'whole number from ' + (-sj.q) + ' to ' + (3 * sj.q) };
+  return { status: 'ok', m: n };
+}
+function evalCount(raw) {
+  var t = trim(raw);
+  if (t === '') return { status: 'empty' };
+  var n = Number(t);
+  if (!isInt(n) || n < 0 || n > 150) return { status: 'bad', msg: 'a whole number from 0 to 150' };
+  return { status: 'ok', n: n };
+}
+function parseRank(raw) {
+  if (raw === null || raw === undefined || String(raw).trim() === '') return null;
+  var n = Number(raw);
+  if (!isFinite(n) || n < 1 || Math.floor(n) !== n) return 'bad';
+  return n;
+}
+function consText(cons) {
+  var s = '3 × correct − wrong = ' + cons.v3 + '. ';
+  s += cons.sumMains !== null ? 'The four Mains sections add to ' + cons.sumMains + '. ' : '';
+  s += cons.sumAll !== null ? 'All five sections add to ' + cons.sumAll + '.' : 'Enter the Computer mark to check the 150-question total.';
+  return s;
+}
+function evaluateRow(tr) {
+  var id = tr.getAttribute('data-row');
+  var v = readRow(tr), ex = findRec(S.D, S.enter.week, S.enter.plat, id);
+  var marks = {}, eff = {};
+  SUBJECTS.forEach(function (sj) {
+    marks[sj.k] = evalMark(sj, v.marks[sj.k]);
+    if (marks[sj.k].status === 'ok') eff[sj.k] = marks[sj.k].m;
+    else if (ex && ex.s[sj.k].m !== null) eff[sj.k] = ex.s[sj.k].m;
+    else eff[sj.k] = null;
+  });
+  var c = evalCount(v.c), w = evalCount(v.w);
+  if (c.status === 'ok' && w.status === 'ok' && c.n + w.n > 150) {
+    c = { status: 'bad', msg: 'Correct + Wrong cannot exceed 150' };
+    w = { status: 'bad', msg: 'Correct + Wrong cannot exceed 150' };
+  }
+  var cntOk = c.status === 'ok' && w.status === 'ok';
+  var allEff = SUBJECTS.every(function (sj) { return eff[sj.k] !== null; });
+  var mainsEff = MAINS.every(function (k) { return eff[k] !== null; });
+  var sumAll = allEff ? SUBJECTS.reduce(function (a, sj) { return a + eff[sj.k]; }, 0) : null;
+  var sumMains = mainsEff ? MAINS.reduce(function (a, k) { return a + eff[k]; }, 0) : null;
+  var cons = null, q = null;
+  if (cntOk && (sumAll !== null || sumMains !== null)) {
+    var v3 = 3 * c.n - w.n;
+    // the counts may cover all 150 questions or only the 130 Mains questions; whichever the marks agree with
+    if (sumAll !== null && v3 === sumAll) cons = { status: 'match', q: 150 };
+    else if (sumMains !== null && v3 === sumMains) cons = { status: 'match', q: 130 };
+    else cons = { status: 'mismatch', v3: v3, sumAll: sumAll, sumMains: sumMains };
+    q = cons.status === 'match' ? cons.q : null;
+  }
+  return {
+    id: id, ex: ex, v: v, marks: marks, eff: eff, c: c, w: w, cntOk: cntOk, cons: cons, q: q,
+    attempted: cntOk ? c.n + w.n : null, tot: sumMains, sumAll: sumAll, sumMains: sumMains,
+    absent: v.absent === true, rank: parseRank(v.rank)
+  };
+}
+function paintMark(el, r, sj) {
+  if (!el) return;
+  clearEl(el);
+  el.classList.remove('bad');
+  if (r.status === 'ok') {
+    el.appendChild(bandChip(bandOf(sj.k, r.m)));
+    if (sj.k === 'computer') el.appendChild(document.createTextNode(r.m >= QUAL ? ' ✓ qualifies' : ' below 24'));
+  } else if (r.status === 'bad') {
+    el.classList.add('bad');
+    el.appendChild(document.createTextNode(r.msg));
+  } else {
+    el.appendChild(document.createTextNode(sj.k === 'computer' ? 'optional · needs 24' : ''));
+  }
+}
+function paintCheck(el, ev) {
+  if (!el) return;
+  clearEl(el);
+  el.classList.remove('ok', 'bad');
+  if (ev.absent) { el.appendChild(document.createTextNode('absent')); return; }
+  if (ev.c.status === 'bad' || ev.w.status === 'bad') {
+    el.classList.add('bad');
+    el.appendChild(document.createTextNode((ev.c.msg || ev.w.msg)));
+    return;
+  }
+  if (!ev.cntOk) {
+    el.appendChild(document.createTextNode(ev.c.status === 'empty' && ev.w.status === 'empty' ? 'enter Correct and Wrong' : 'enter both counts'));
+    return;
+  }
+  if (!ev.cons) { el.appendChild(document.createTextNode('add the marks to check')); return; }
+  if (ev.cons.status === 'match') {
+    el.classList.add('ok');
+    el.appendChild(document.createTextNode('✓ counts match the marks · ' + (ev.cons.q === 150 ? 'all 150 questions' : 'Mains 130 questions')));
+  } else {
+    el.classList.add('bad');
+    el.appendChild(document.createTextNode('✗ 3 × ' + ev.c.n + ' − ' + ev.w.n + ' = ' + ev.cons.v3 + ', not ' + (ev.cons.sumAll !== null ? ev.cons.sumAll : ev.cons.sumMains) + '. Check a number.'));
+  }
+}
+function refreshRow(tr) {
+  var ev = evaluateRow(tr), absent = ev.absent;
+  SUBJECTS.forEach(function (sj) { paintMark(tr.querySelector('[data-mini="' + sj.k + '"]'), ev.marks[sj.k], sj); });
+  var off = absent || S.readOnly || S.enter.mode === 'ranks';
+  ['m-maths', 'm-reasoning', 'm-english', 'm-ga', 'm-computer', 'c', 'w'].forEach(function (f) {
+    var x = tr.querySelector('[data-f="' + f + '"]');
+    if (x) x.disabled = off;
+  });
+  tr.querySelector('[data-att]').textContent = absent || ev.attempted === null ? '–' : String(ev.attempted);
+  tr.querySelector('[data-na]').textContent = absent || ev.attempted === null ? '–' : String((ev.q || 150) - ev.attempted);
+  tr.querySelector('[data-acc]').textContent = absent || !ev.attempted ? '–' : Math.round(ev.c.n / ev.attempted * 100) + '%';
+  paintCheck(tr.querySelector('[data-cons]'), ev);
+  var shown = absent ? null : ev.tot;
+  tr.querySelector('[data-total]').textContent = shown === null ? '–' : String(shown);
+  paintBand(tr.querySelector('[data-tband]'), shown === null ? null : bandOf('total', shown));
+  tr.classList.toggle('row-absent', absent);
+}
+function summaryText(rows) {
+  var n = rows.length, full = 0, ranked = 0, absent = 0;
+  rows.forEach(function (tr) {
+    var ev = evaluateRow(tr);
+    if (ev.absent) absent++;
+    else if (ev.tot !== null && ev.cons && ev.cons.status === 'match') full++;
+    if (ev.rank !== null && ev.rank !== 'bad') ranked++;
+  });
+  if (S.enter.mode === 'team') {
+    return full + ' of ' + (n - absent) + ' candidates have a full, checked analysis for this test' + (absent ? ' (' + absent + ' absent)' : '') + '.';
+  }
+  return ranked + ' of ' + n + ' ranks entered. Enter ranks about 3 days after the test; leave blank if they are not final yet.';
+}
+function refreshSummary() {
+  var box = $('#enterSummary');
+  if (box) box.textContent = summaryText(Array.prototype.slice.call(document.querySelectorAll('#entryTbl tr[data-row]')));
+}
+function onRowInput(e) {
+  if (!S.draft) return;
+  var tr = e.target.closest('[data-row]');
+  if (!tr) return;
+  S.draft.rows[tr.getAttribute('data-row')] = readRow(tr);
+  refreshRow(tr);
+  refreshSummary();
+}
+function nextInput(from) {
+  var all = Array.prototype.slice.call(document.querySelectorAll('#entryTbl input')).filter(function (x) { return !x.disabled && x.type !== 'checkbox'; });
+  var i = all.indexOf(from);
+  if (i >= 0 && all[i + 1]) all[i + 1].focus();
+}
+function markBad(tr, field) {
+  var x = tr.querySelector('[data-f="' + field + '"]');
+  if (x) x.setAttribute('aria-invalid', 'true');
+}
+function enterRow(m, ex, v, mode) {
+  var locked = S.readOnly || mode === 'ranks' || v.absent === true;
+  var tr = h('tr', { 'data-row': m.id });
+  tr.appendChild(h('td', { 'data-label': 'Candidate' }, [h('div', { class: 'who' }, [avatar(m, 34), h('b', {}, [m.name])])]));
+  SUBJECTS.forEach(function (sj) {
+    var inp = h('input', { type: 'number', inputmode: 'numeric', min: String(-sj.q), max: String(3 * sj.q), step: '1', value: v.marks[sj.k],
+      'data-f': 'm-' + sj.k, 'aria-label': m.name + ' ' + sj.label + ' marks', disabled: locked ? true : null, oninput: onRowInput, class: 'mk-in' });
+    tr.appendChild(h('td', { class: 'n mkcell', 'data-label': sj.label }, [inp, h('div', { class: 'mini', 'data-mini': sj.k }, [])]));
+  });
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Correct' }, [
+    h('input', { type: 'number', inputmode: 'numeric', min: '0', max: '150', step: '1', value: v.c, 'data-f': 'c', 'aria-label': m.name + ' correct, whole test',
+      disabled: locked ? true : null, oninput: onRowInput, class: 'cnt-in' })
+  ]));
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Wrong' }, [
+    h('input', { type: 'number', inputmode: 'numeric', min: '0', max: '150', step: '1', value: v.w, 'data-f': 'w', 'aria-label': m.name + ' wrong, whole test',
+      disabled: locked ? true : null, oninput: onRowInput, class: 'cnt-in' })
+  ]));
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Attempted' }, [h('span', { 'data-att': '1' }, ['–'])]));
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Not attempted' }, [h('span', { 'data-na': '1' }, ['–'])]));
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Accuracy' }, [h('span', { 'data-acc': '1' }, ['–'])]));
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Total /390' }, [
+    h('div', { class: 'tot', 'data-total': '1' }, ['–']),
+    h('div', { style: { display: 'flex', justifyContent: 'flex-end', marginTop: '4px' }, 'data-tband': '1' }, [])
+  ]));
+  tr.appendChild(h('td', { class: 'cellcheck', 'data-label': 'Check' }, [h('div', { class: 'cons', 'data-cons': '1' }, [])]));
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Rank' }, [
+    h('input', { type: 'number', min: '1', step: '1', inputmode: 'numeric', class: 'rank-in', value: v.rank, 'data-f': 'rank',
+      disabled: S.readOnly ? true : null, 'aria-label': m.name + ' rank', oninput: onRowInput })
+  ]));
+  tr.appendChild(h('td', { class: 'n', 'data-label': 'Absent' }, [
+    h('input', { type: 'checkbox', 'data-f': 'absent', checked: v.absent ? true : null,
+      disabled: (mode === 'ranks' || S.readOnly) ? true : null, 'aria-label': m.name + ' absent', onchange: onRowInput })
+  ]));
+  return tr;
+}
+function buildDoc(w, p, id, sub, rank, cnt) {
+  return {
+    id: skey(w, p, id), week: w, plat: p, member: id, sub: sub,
+    cnt: cnt ? { c: cnt.c, w: cnt.w, q: cnt.q } : null,
+    rank: rank === 'bad' || rank === undefined ? null : rank,
+    at: new Date().toISOString()
+  };
+}
+function subsFromRecord(ex) {
+  var sub = {};
+  SUBJECTS.forEach(function (sj) { sub[sj.k] = { m: ex.s[sj.k].m }; });
+  return sub;
+}
+function cntFromRecord(ex) {
+  return ex && ex.cnt ? { c: ex.cnt.c, w: ex.cnt.w, q: ex.cnt.q } : null;
+}
+// One place for the save rules, used by My scores, Whole team and Ranks alike.
+function planRow(ev, tr, m, w, p, mode) {
+  var out = { ops: [], errs: [], hit: null };
+  var ex = ev.ex;
+  if (mode === 'ranks') {
+    if (!ex) return out;
+    if (ev.rank === 'bad') { out.errs.push(m.name + ': rank must be a whole number, 1 or more'); markBad(tr, 'rank'); return out; }
+    var nr = ev.rank === null ? ex.rank : ev.rank;
+    if (nr !== ex.rank) out.ops.push({ put: buildDoc(w, p, m.id, subsFromRecord(ex), nr, cntFromRecord(ex)) });
+    return out;
+  }
+  if (ev.absent) { if (ex) out.ops.push({ del: skey(w, p, m.id) }); return out; }
+  var bad = false;
+  if (ev.rank === 'bad') { bad = true; out.errs.push(m.name + ': rank must be a whole number, 1 or more'); markBad(tr, 'rank'); }
+  SUBJECTS.forEach(function (sj) {
+    var r = ev.marks[sj.k];
+    if (r.status === 'bad') { bad = true; out.errs.push(m.name + ' · ' + sj.label + ': ' + r.msg); markBad(tr, 'm-' + sj.k); }
+  });
+  if (ev.c.status === 'bad' || ev.w.status === 'bad') {
+    bad = true;
+    out.errs.push(m.name + ' · Correct and Wrong: ' + (ev.c.msg || ev.w.msg));
+    markBad(tr, 'c'); markBad(tr, 'w');
+  }
+  if (bad) return out;
+  var typed = SUBJECTS.some(function (sj) { return ev.marks[sj.k].status === 'ok'; }) || ev.c.status === 'ok' || ev.w.status === 'ok';
+  if (!typed) {
+    if (ex && ev.rank !== null && ev.rank !== ex.rank) out.ops.push({ put: buildDoc(w, p, m.id, subsFromRecord(ex), ev.rank, cntFromRecord(ex)) });
+    return out;
+  }
+  if (!ev.cntOk && (ev.c.status !== 'empty' || ev.w.status !== 'empty')) {
+    out.errs.push(m.name + ': enter both Correct and Wrong for the whole test, or leave both empty');
+    markBad(tr, 'c'); markBad(tr, 'w');
+    return out;
+  }
+  if (ev.cntOk && ev.cons && ev.cons.status === 'mismatch') {
+    out.errs.push(m.name + ': counts and marks disagree. ' + consText(ev.cons));
+    markBad(tr, 'c'); markBad(tr, 'w');
+    return out;
+  }
+  var missing = MAINS.filter(function (k) { return ev.eff[k] === null; });
+  if (missing.length) {
+    out.errs.push(m.name + ': add the ' + missing.map(function (k) { return SUBJ_BY[k].label; }).join(', ') + ' marks (or tick Absent)');
+    missing.forEach(function (k) { markBad(tr, 'm-' + k); });
+    return out;
+  }
+  var sub = {};
+  SUBJECTS.forEach(function (sj) { sub[sj.k] = { m: ev.eff[sj.k] }; });
+  var cnt = ev.cntOk ? { c: ev.c.n, w: ev.w.n, q: ev.q || 150 } : cntFromRecord(ex);
+  var rank = ev.rank === null && ex ? ex.rank : ev.rank;
+  out.ops.push({ put: buildDoc(w, p, m.id, sub, rank, cnt) });
+  if (ev.sumMains >= TARGET) out.hit = m.name + ' scored ' + ev.sumMains;
+  return out;
+}
+async function commitPlan(plan, mode) {
+  if (plan.errs.length) {
+    toast(plan.errs.slice(0, 2).join(' · ') + (plan.errs.length > 2 ? ' (+' + (plan.errs.length - 2) + ' more)' : ''), 'warn');
+    return false;
+  }
+  if (!plan.ops.length) { toast('Nothing new to save'); return false; }
+  var ok = true;
+  for (var i = 0; i < plan.ops.length; i++) {
+    try {
+      if (plan.ops[i].put) await putScore(plan.ops[i].put);
+      else await dropScore(plan.ops[i].del);
+    } catch (e) { errorToast(e); ok = false; break; }
+  }
+  if (ok) {
+    var n = plan.ops.filter(function (o) { return o.put; }).length, d = plan.ops.length - n;
+    if (mode === 'ranks') toast('Saved ' + n + ' rank' + (n === 1 ? '' : 's'), 'ok');
+    else toast('Saved ' + n + ' score' + (n === 1 ? '' : 's') + (d ? ' · removed ' + d + ' absent' : ''), 'ok');
+    if (plan.hit) celebrate(plan.hit);
+  }
+  return ok;
+}
+async function saveEnter() {
+  if (S.readOnly) return;
+  var w = S.enter.week, p = S.enter.plat, mode = S.enter.mode;
+  clearInvalid();
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#entryTbl tr[data-row]'));
+  var plan = { ops: [], errs: [], hit: null };
+  rows.forEach(function (tr) {
+    var m = S.members.filter(function (x) { return x.id === tr.getAttribute('data-row'); })[0];
+    if (!m) return;
+    var sub = planRow(evaluateRow(tr), tr, m, w, p, mode);
+    plan.ops = plan.ops.concat(sub.ops);
+    plan.errs = plan.errs.concat(sub.errs);
+    if (sub.hit && !plan.hit) plan.hit = sub.hit;
+  });
+  var done = await commitPlan(plan, mode);
+  // Only a successful save clears the typed values. A validation error keeps everything the person typed.
+  if (done) { S.draft = null; render(true); }
+}
+async function saveMine() {
+  if (S.readOnly) return;
+  clearInvalid();
+  var box = document.querySelector('.mine[data-row]');
+  if (!box) return;
+  var w = S.enter.week, p = S.enter.plat;
+  var m = S.members.filter(function (x) { return x.id === box.getAttribute('data-row'); })[0];
+  if (!m) return;
+  var plan = planRow(evaluateRow(box), box, m, w, p, 'team');
+  var ok = await commitPlan(plan, 'team');
+  if (ok) { S.draft = null; render(true); }
+}
+// Shows where the chosen candidate stands right now. Recomputed on every render, so it moves after each save.
+function standingCard(D, mid, w, p) {
+  var st = statsFor(mid, D);
+  var lb = board(D);
+  var pos = lb.findIndex(function (r) { return r.m.id === mid; }) + 1;
+  var rec = findRec(D, w, p, mid);
+  var subs = SUBJECTS.map(function (sj) {
+    var ranked = rankedBy(D, function (s) { return s.subAvg[sj.k]; });
+    var idx = ranked.findIndex(function (x) { return x.m.id === mid; });
+    return h('div', { class: 'standing-sub' }, [h('span', {}, [SUBJ_ICON[sj.k] + ' ' + sj.label]), h('b', {}, [idx < 0 ? '–' : '#' + (idx + 1) + ' of ' + ranked.length])]);
+  });
+  return h('div', { class: 'card' }, [
+    h('h2', {}, ['Where I stand']),
+    h('p', { class: 'sub' }, ['Updates as soon as anyone saves a score']),
+    h('div', { class: 'grid g3' }, [
+      h('div', { class: 'standing' }, [
+        h('div', { class: 'label-s' }, ['total average']),
+        h('div', { class: 'big-n sm' }, [st.n ? st.total.toFixed(1) : '–']),
+        h('div', { class: 'muted small' }, [pos ? 'team rank #' + pos + ' of ' + lb.length : 'no tests yet'])
+      ]),
+      h('div', { class: 'standing' }, [
+        h('div', { class: 'label-s' }, ['this test']),
+        h('div', { class: 'big-n sm' }, [rec ? String(rec.total) : '–']),
+        h('div', { class: 'muted small' }, [rec ? '#' + rec.gpos + ' of ' + rec.gsize + ' in ' + PLAT_BY[p].name + ' · ' + BAND_INFO[rec.tband].name : 'no saved score for this test yet'])
+      ]),
+      h('div', { class: 'standing' }, [h('div', { class: 'label-s' }, ['section ranks']), h('div', { class: 'standing-subs' }, subs)])
+    ])
+  ]);
+}
+function viewMine(D, w, p) {
+  var root = h('div', { class: 'stack' });
+  var members = S.members.slice().sort(bySlot);
+  var remembered = lsGet('mm_me', null);
+  var mid = S.enter.member && S.members.some(function (x) { return x.id === S.enter.member; }) ? S.enter.member
+    : (remembered && S.members.some(function (x) { return x.id === remembered; }) ? remembered : members[0].id);
+  S.enter.member = mid;
+  var me = S.members.filter(function (x) { return x.id === mid; })[0];
+  var ex = findRec(D, w, p, mid);
+  var v = S.draft.rows[mid] || prefillRow(ex);
+  var sel = h('select', { id: 'selMe', 'aria-label': 'I am', onchange: function (e) {
+    S.enter.member = e.target.value;
+    lsSet('mm_me', e.target.value);
+    S.draft = null;
+    render(true);
+  } }, members.map(function (x) { return h('option', { value: x.id }, [x.name]); }));
+  sel.value = mid;
+  var box = h('div', { class: 'mine', 'data-row': mid });
+  box.appendChild(h('div', { class: 'mine-sec-title' }, ['Section marks · from your scorecard']));
+  SUBJECTS.forEach(function (sj) {
+    var inp = h('input', { type: 'number', inputmode: 'numeric', min: String(-sj.q), max: String(3 * sj.q), step: '1', value: v.marks[sj.k],
+      'data-f': 'm-' + sj.k, 'aria-label': sj.label + ' marks', disabled: S.readOnly ? true : null, oninput: onRowInput, class: 'mk-in' });
+    box.appendChild(h('div', { class: 'msub' }, [
+      h('div', {}, [
+        h('div', { class: 'msub-name' }, [SUBJ_ICON[sj.k] + ' ' + sj.label]),
+        h('div', { class: 'muted small' }, [sj.k === 'computer' ? 'qualifying · 24 needed' : sj.q + ' questions · up to ' + (3 * sj.q)])
+      ]),
+      inp,
+      h('div', { class: 'mini', 'data-mini': sj.k }, [])
+    ]));
+  });
+  box.appendChild(h('div', { class: 'mine-sec-title', style: { marginTop: '16px' } }, ['Whole test · Correct and Wrong (optional)']));
+  box.appendChild(h('div', { class: 'counts' }, [
+    h('label', { class: 'cnt-field' }, ['Correct', h('input', { type: 'number', inputmode: 'numeric', min: '0', max: '150', step: '1', value: v.c,
+      'data-f': 'c', 'aria-label': 'Correct answers, whole test', disabled: S.readOnly ? true : null, oninput: onRowInput })]),
+    h('label', { class: 'cnt-field' }, ['Wrong', h('input', { type: 'number', inputmode: 'numeric', min: '0', max: '150', step: '1', value: v.w,
+      'data-f': 'w', 'aria-label': 'Wrong answers, whole test', disabled: S.readOnly ? true : null, oninput: onRowInput })]),
+    h('div', { class: 'cnt-out' }, ['Attempted', h('b', { 'data-att': '1' }, ['–'])]),
+    h('div', { class: 'cnt-out' }, ['Not attempted', h('b', { 'data-na': '1' }, ['–'])]),
+    h('div', { class: 'cnt-out' }, ['Accuracy', h('b', { 'data-acc': '1' }, ['–'])])
+  ]));
+  box.appendChild(h('div', { class: 'cons', 'data-cons': '1' }, []));
+  box.appendChild(h('div', { class: 'msub-total' }, [
+    h('div', { class: 'tot', 'data-total': '1' }, ['–']),
+    h('div', { 'data-tband': '1' }, [])
+  ]));
+  box.appendChild(h('div', { class: 'row gap', style: { marginTop: '10px', flexWrap: 'wrap', alignItems: 'flex-end' } }, [
+    field('Final rank (optional, after about 3 days)', h('input', { type: 'number', min: '1', step: '1', inputmode: 'numeric', class: 'rank-in', value: v.rank,
+      'data-f': 'rank', 'aria-label': 'My rank', disabled: S.readOnly ? true : null, oninput: onRowInput })),
+    h('label', { class: 'row gap', style: { alignItems: 'center' } }, [
+      h('input', { type: 'checkbox', 'data-f': 'absent', checked: v.absent ? true : null, disabled: S.readOnly ? true : null, 'aria-label': 'I was absent', onchange: onRowInput }),
+      'I was absent for this test'
+    ])
+  ]));
+  refreshRow(box);
+  var saveBtn = h('button', { class: 'btn', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { saveMine(); } }, ['Save my scores']);
+  var resetBtn = h('button', { class: 'btn ghost', type: 'button', onclick: function () { S.draft = null; render(true); toast('Restored the saved values'); } }, ['Reset']);
+  root.appendChild(h('div', { class: 'card' }, [
+    h('div', { class: 'row between', style: { alignItems: 'flex-end' } }, [
+      h('div', {}, [h('h2', {}, ['My scores · ' + me.name]), h('p', { class: 'sub' }, ['Pick your name once on this device. Each analysis is saved only against you.'])]),
+      field('I am', sel)
+    ]),
+    box,
+    h('div', { class: 'row between', style: { marginTop: '14px' } }, [
+      h('p', { class: 'muted small', style: { margin: '0', maxWidth: '560px' } }, ['Total = Maths + Reasoning + English + GA, out of 390. Computer is qualifying only (24 needed) and is not in the total.']),
+      h('div', { class: 'row gap' }, [resetBtn, saveBtn])
+    ])
+  ]));
+  root.appendChild(standingCard(D, mid, w, p));
+  return root;
+}
+function viewEnter(D) {
+  if (!S.enterTouched && D.recs.length) {
+    var last = D.recs.slice().sort(function (a, b) { return a.ord - b.ord; }).slice(-1)[0];
+    S.enter.week = last.week; S.enter.plat = last.plat;
+  }
+  var w = S.enter.week, p = S.enter.plat, mode = S.enter.mode;
+  var key = w + '|' + p + '|' + mode;
+  if (!S.draft || S.draft.key !== key) S.draft = { key: key, rows: {} };
+  var root = h('div', { class: 'stack' });
+  function segBtn(label, id) {
+    return h('button', { type: 'button', 'aria-pressed': String(mode === id), onclick: function () {
+      S.enter.mode = id; S.enterTouched = true; S.draft = null; render(true);
+    } }, [label]);
+  }
+  var weekSel = h('select', { id: 'selWeek', 'aria-label': 'Test week', class: 'sel-wide', onchange: function (e) {
+    S.enter.week = e.target.value; S.enterTouched = true; S.draft = null; render(true);
+  } });
+  MONTHS.forEach(function (mo) {
+    var og = h('optgroup', { label: mo });
+    WEEKS.filter(function (x) { return x.month === mo; }).forEach(function (x) {
+      og.appendChild(h('option', { value: x.key }, [labelOf(x.key) + (isConfirmed(x.key) ? '' : ' (est.)')]));
+    });
+    weekSel.appendChild(og);
+  });
+  weekSel.value = w;
+  var platSel = h('select', { id: 'selPlat', 'aria-label': 'Platform', onchange: function (e) {
+    S.enter.plat = e.target.value; S.enterTouched = true; S.draft = null; render(true);
+  } }, PLATS.map(function (x) { return h('option', { value: x.key }, [x.name]); }));
+  platSel.value = p;
+  var seg = h('div', { class: 'seg', role: 'group', 'aria-label': 'Entry mode' }, [segBtn('My scores', 'mine'), segBtn('Whole team', 'team'), segBtn('Ranks', 'ranks')]);
+  var titles = { mine: 'Enter my scores', team: 'Enter the whole team', ranks: 'Enter final ranks' };
+  var guides = {
+    mine: 'Type the five section marks (maths, reasoning, english, ga, computer) from your scorecard. Correct and Wrong for the whole test are optional. If you enter them, the app checks that your counts agree with your marks.',
+    team: 'Type the section marks for each candidate. Correct and Wrong are optional. Leave a row blank if there is nothing new, or tick Absent.',
+    ranks: 'Ranks are final about 3 days after the test. Only the Rank column is editable in this mode.'
+  };
+  var summary = mode === 'ranks' ? h('p', { id: 'enterSummary', class: 'muted small', style: { marginTop: '12px' } }, []) :
+    (mode === 'team' ? h('p', { id: 'enterSummary', class: 'muted small', style: { marginTop: '12px' } }, []) : null);
+  root.appendChild(h('div', { class: 'card' }, [
+    h('div', { class: 'row between' }, [h('div', {}, [h('h2', {}, [titles[mode]]), h('p', { class: 'sub' }, [testLabel(w, p)])]), seg]),
+    h('div', { class: 'grid g2', style: { marginTop: '8px' } }, [field('Test week', weekSel), field('Platform', platSel)]),
+    summary,
+    h('div', { class: 'help', style: { marginTop: '12px' } }, ['💡 ' + guides[mode]])
+  ]));
+  var members = S.members.slice().sort(bySlot);
+  if (!members.length) {
+    root.appendChild(h('div', { class: 'card empty' }, [h('b', {}, ['Add the candidates first']), 'Go to Team and rules, add everyone who is preparing, then come back here.']));
+    return root;
+  }
+  if (mode === 'mine') {
+    root.appendChild(viewMine(D, w, p));
+    return root;
+  }
+  var rows = members.map(function (m) {
+    var ex = findRec(D, w, p, m.id);
+    return enterRow(m, ex, S.draft.rows[m.id] || prefillRow(ex), mode);
+  });
+  rows.forEach(function (tr) { refreshRow(tr); });
+  if (summary) summary.textContent = summaryText(rows);
+  var heads = [h('th', {}, ['Candidate'])]
+    .concat(SUBJECTS.map(function (sj) { return h('th', { class: 'n' }, [sj.label + ' marks' + (sj.k === 'computer' ? ' (qualifying)' : '')]); }))
+    .concat([h('th', { class: 'n' }, ['Correct']), h('th', { class: 'n' }, ['Wrong']), h('th', { class: 'n' }, ['Attempted']),
+      h('th', { class: 'n' }, ['Not attempted']), h('th', { class: 'n' }, ['Accuracy']), h('th', { class: 'n' }, ['Total /390']),
+      h('th', {}, ['Check']), h('th', { class: 'n' }, ['Rank']), h('th', { class: 'n' }, ['Absent'])]);
+  var table = h('table', { class: 'tbl entry', id: 'entryTbl' }, [h('thead', {}, [h('tr', {}, heads)]), h('tbody', {}, rows)]);
+  table.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') { e.preventDefault(); nextInput(e.target); }
+  });
+  var saveBtn = h('button', { class: 'btn', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { saveEnter(); } },
+    [mode === 'team' ? 'Save all analysis' : 'Save ranks']);
+  var resetBtn = h('button', { class: 'btn ghost', type: 'button', onclick: function () { S.draft = null; render(true); toast('Restored the saved values'); } }, ['Reset']);
+  root.appendChild(h('div', { class: 'card' }, [
+    h('div', { class: 'wrapx' }, [table]),
+    h('div', { class: 'row between', style: { marginTop: '14px' } }, [
+      h('p', { class: 'muted small', style: { margin: '0', maxWidth: '640px' } }, ['Total = Maths + Reasoning + English + GA, out of 390. Computer is qualifying only (24 needed) and is not counted in the total.']),
+      h('div', { class: 'row gap' }, [resetBtn, saveBtn])
+    ])
+  ]));
+  return root;
+}
+function deleteScoreRow(id, label) {
+  confirmBox('Delete this score?', label + ' will be removed for everyone. This cannot be undone.', 'Delete', async function () {
+    await run(function () { return dropScore(id); }, 'Score deleted');
+  }, true);
+}
+
+/* ================= Calendar ================= */
+function chipsRow(values, current, onPick, allLabel) {
+  return h('div', { class: 'chips-row', role: 'group' }, values.map(function (v) {
+    return h('button', { class: 'fchip', type: 'button', 'aria-pressed': String(current === v),
+      onclick: function () { onPick(v); } }, [v === 'all' ? allLabel : (PLAT_BY[v] ? PLAT_BY[v].name : v)]);
+  }));
+}
+function testCard(t) {
+  var w = WEEK_BY[t.week], p = PLAT_BY[t.plat];
+  var fill = t.members ? t.entries / t.members * 100 : 0;
+  var status = t.status === 'none' ? h('span', { class: 'chip' }, ['Not started'])
+    : (t.status === 'pending' ? h('span', { class: 'chip warn' }, ['Ranks pending · ' + t.ranks + '/' + t.entries]) : h('span', { class: 'chip ok' }, ['Complete ✓']));
+  var mode = t.status === 'pending' ? 'ranks' : 'mine';
+  var btn = t.status === 'none' ? 'Enter analysis' : (t.status === 'pending' ? 'Enter ranks' : 'View or edit');
+  return h('div', { class: 'card test-card' }, [
+    h('div', { class: 'row between' }, [
+      h('div', {}, [h('div', { class: 'muted small' }, [w.month + ' · Test ' + w.n]), h('h3', {}, [labelOf(t.week)])]),
+      h('span', { class: 'plat-dot', style: { background: p.color }, 'aria-hidden': 'true' })
+    ]),
+    h('div', { class: 'row gap' }, [h('b', {}, [p.name]), status, isConfirmed(t.week) ? null : h('span', { class: 'chip est' }, ['est. date'])]),
+    h('div', { class: 'bar sm' + (t.status === 'done' ? ' ok' : '') }, [h('span', { style: { width: fill.toFixed(1) + '%' } })]),
+    h('div', { class: 'muted small' }, [t.entries + ' of ' + t.members + ' members entered']),
+    h('button', { class: 'btn ghost wide', type: 'button', onclick: function () { openEnter(t.week, t.plat, mode); } }, [btn])
+  ]);
+}
+function viewTests(D) {
+  var list = allTests(D).filter(function (t) {
+    var w = WEEK_BY[t.week], p = PLAT_BY[t.plat];
+    return (S.tests.month === 'all' || w.month === S.tests.month) && (S.tests.plat === 'all' || p.key === S.tests.plat);
+  });
+  var root = h('div', { class: 'stack' });
+  root.appendChild(h('div', { class: 'card' }, [
+    h('div', { class: 'row between' }, [
+      h('div', {}, [
+        h('h2', {}, ['Test calendar']),
+        h('p', { class: 'sub' }, ['Four Friday-to-Sunday tests a month, each on three platforms. Dates marked est. are estimates: correct them under Team and rules.'])
+      ]),
+      h('div', { class: 'row gap' }, [
+        chipsRow(['all'].concat(MONTHS), S.tests.month, function (v) { S.tests.month = v; render(true); }, 'All months'),
+        chipsRow(['all'].concat(PLATS.map(function (p) { return p.key; })), S.tests.plat, function (v) { S.tests.plat = v; render(true); }, 'All platforms')
+      ])
+    ])
+  ]));
+  root.appendChild(pendingCard(allTests(D).filter(function (t) { return t.status === 'pending'; })));
+  root.appendChild(h('div', { class: 'tests-grid' }, list.map(testCard)));
+  if (!list.length) root.appendChild(h('div', { class: 'empty' }, ['No tests match these filters.']));
+  return root;
+}
+
+/* ================= Leaderboard ================= */
+function viewBoard(D) {
+  var lb = board(D), root = h('div', { class: 'stack' });
+  if (!lb.length) {
+    root.appendChild(h('div', { class: 'card empty' }, [h('b', {}, ['No scores yet']), 'The leaderboard appears here once scores are entered.']));
+    return root;
+  }
+  root.appendChild(h('div', { class: 'card' }, [
+    h('div', { class: 'row between' }, [
+      h('div', {}, [h('h2', {}, ['Podium']), h('p', { class: 'sub' }, ['Ranked by total average out of 390'])]),
+      h('span', { class: 'chip nt' }, ['Target 350'])
+    ]),
+    podium(lb)
+  ]));
+  var rows = lb.map(function (r, i) {
+    var fill = Math.min(100, r.st.total / TMAX * 100);
+    return h('tr', {}, [
+      h('td', { 'data-label': '#' }, [h('b', {}, [String(i + 1)])]),
+      h('td', { 'data-label': 'Member' }, [h('div', { class: 'who' }, [
+        avatar(r.m, 34),
+        h('button', { class: 'linkish', type: 'button', onclick: function () { S.profileId = r.m.id; go('profile'); } }, [r.m.name])
+      ])]),
+      h('td', { class: 'n', 'data-label': 'Total avg' }, [h('div', { style: { display: 'grid', gap: '4px', justifyItems: 'end', minWidth: '170px' } }, [
+        h('span', { class: 'row gap', style: { justifyContent: 'flex-end' } }, [h('b', {}, [r.st.total.toFixed(1)]), bandChip(bandOf('total', r.st.total))]),
+        h('div', { class: 'bar sm' + (r.st.total >= TARGET ? ' gold' : ''), style: { width: '100%' } }, [h('span', { style: { width: fill.toFixed(1) + '%' } })])
+      ])]),
+      h('td', { class: 'n', 'data-label': 'Maths' }, [f1(r.st.subAvg.maths)]),
+      h('td', { class: 'n', 'data-label': 'Reasoning' }, [f1(r.st.subAvg.reasoning)]),
+      h('td', { class: 'n', 'data-label': 'English' }, [f1(r.st.subAvg.english)]),
+      h('td', { class: 'n', 'data-label': 'GA' }, [f1(r.st.subAvg.ga)]),
+      h('td', { class: 'n', 'data-label': 'Computer' }, [f1(r.st.subAvg.computer)]),
+      h('td', { class: 'n', 'data-label': 'Accuracy' }, [pct(r.st.accMains)]),
+      h('td', { class: 'n', 'data-label': 'Marks lost' }, [r.st.nCW ? '−' + r.st.wrongMains : '–']),
+      h('td', { class: 'n', 'data-label': 'Avg rank' }, [r.st.avgRank === null ? '–' : fmtN(r.st.avgRank)]),
+      h('td', { class: 'n', 'data-label': 'Tests' }, [String(r.st.n)]),
+      h('td', { class: 'n', 'data-label': 'Group wins' }, [String(r.st.wins)])
+    ]);
+  });
+  var heads = ['#', 'Member', 'Total avg', 'Maths', 'Reasoning', 'English', 'GA', 'Computer', 'Accuracy', 'Marks lost', 'Avg rank', 'Tests', 'Wins'];
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['Full leaderboard']),
+    h('p', { class: 'sub' }, ['Averages across every test each person has written. Accuracy = correct ÷ attempted, across the four Mains sections.']),
+    h('div', { class: 'wrapx' }, [h('table', { class: 'tbl board' }, [
+      h('thead', {}, [h('tr', {}, heads.map(function (t, i) { return h('th', { class: i >= 2 ? 'n' : '' }, [t]); }))]),
+      h('tbody', {}, rows)
+    ])])
+  ]));
+  return root;
+}
+
+/* ================= Profile ================= */
+function radarChart(st, D) {
+  var W = 340, H = 300, cx = W / 2, cy = H / 2 + 6, R = 104, N = SUBJECTS.length;
+  var svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, class: 'chart', role: 'img', 'aria-label': 'Subject strengths against the subject topper' });
+  [0.25, 0.5, 0.75, 1].forEach(function (f) {
+    var pts = [];
+    for (var i = 0; i < N; i++) { var a = -Math.PI / 2 + i * 2 * Math.PI / N; pts.push((cx + Math.cos(a) * R * f).toFixed(1) + ',' + (cy + Math.sin(a) * R * f).toFixed(1)); }
+    svg.appendChild(svgEl('polygon', { points: pts.join(' '), fill: 'none', stroke: 'var(--line)' }));
+  });
+  SUBJECTS.forEach(function (sj, i) {
+    var a = -Math.PI / 2 + i * 2 * Math.PI / N;
+    svg.appendChild(svgEl('line', { x1: cx, y1: cy, x2: (cx + Math.cos(a) * R).toFixed(1), y2: (cy + Math.sin(a) * R).toFixed(1), stroke: 'var(--line)' }));
+    var t = svgEl('text', { x: (cx + Math.cos(a) * (R + 28)).toFixed(1), y: (cy + Math.sin(a) * (R + 16)).toFixed(1), 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--muted)', 'font-weight': 700 });
+    t.textContent = sj.label.replace(' (GK)', '') + (sj.k === 'computer' ? ' *' : '');
+    svg.appendChild(t);
+  });
+  function poly(vals, color, dashed) {
+    var pts = vals.map(function (v, i) {
+      var a = -Math.PI / 2 + i * 2 * Math.PI / N, f = Math.max(0, Math.min(1, v));
+      return (cx + Math.cos(a) * R * f).toFixed(1) + ',' + (cy + Math.sin(a) * R * f).toFixed(1);
+    });
+    var attrs = { points: pts.join(' '), fill: dashed ? 'none' : color, 'fill-opacity': dashed ? 0 : 0.25, stroke: color, 'stroke-width': 2.6 };
+    if (dashed) attrs['stroke-dasharray'] = '5 4';
+    return svgEl('polygon', attrs);
+  }
+  var mine = SUBJECTS.map(function (sj) { var v = st.subAvg[sj.k]; return v === null || v === undefined ? 0 : v / sj.max; });
+  var tp = toppersFor(D);
+  var grp = SUBJECTS.map(function (sj) {
+    var t = tp.subject[sj.k];
+    return t ? t.value / sj.max : 0;
+  });
+  svg.appendChild(poly(grp, '#94a3b8', true));
+  svg.appendChild(poly(mine, '#6366f1', false));
+  return h('div', {}, [svg, legend(['Solid: this candidate', 'Dashed: subject topper', '* qualifying only'])]);
+}
+function trendChart(st, D) {
+  var W = 560, H = 300, L = 46, R = 16, T = 18, B = 40;
+  var n = st.recs.length;
+  if (!n) return h('div', { class: 'empty' }, ['Not enough data yet']);
+  var testTop = function (r) { return Math.max.apply(null, D.groups[r.ord].map(function (x) { return x.total; })); };
+  var ys = st.recs.map(function (r) { return r.total; }).concat(st.recs.map(testTop)).concat([TARGET]);
+  var lo = Math.max(0, Math.floor((Math.min.apply(null, ys) - 20) / 10) * 10), hi = TMAX;
+  var X = function (i) { return L + (W - L - R) * (n <= 1 ? 0.5 : i / (n - 1)); };
+  var Y = function (v) { return T + (H - T - B) * (1 - (v - lo) / (hi - lo)); };
+  var svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, class: 'chart', role: 'img', 'aria-label': 'Total trend against the highest total in each test' });
+  for (var g = 0; g <= 4; g++) {
+    var gv = lo + (hi - lo) * g / 4;
+    svg.appendChild(svgEl('line', { x1: L, x2: W - R, y1: Y(gv), y2: Y(gv), stroke: 'var(--line)' }));
+    var tx = svgEl('text', { x: L - 8, y: Y(gv) + 4, 'text-anchor': 'end', 'font-size': 10, fill: 'var(--muted)' });
+    tx.textContent = String(Math.round(gv));
+    svg.appendChild(tx);
+  }
+  [[TARGET, 'Outstanding 350', BAND_COLOR.O], [BANDS.total.gs, 'Good 325', BAND_COLOR.GS], [BANDS.total.ok, 'Okay 275', BAND_COLOR.OK]].forEach(function (bl) {
+    if (bl[0] < lo || bl[0] > hi) return;
+    svg.appendChild(svgEl('line', { x1: L, x2: W - R, y1: Y(bl[0]), y2: Y(bl[0]), stroke: bl[2], 'stroke-dasharray': '4 5', 'stroke-width': 1.2, opacity: 0.8 }));
+    var t = svgEl('text', { x: W - R, y: Y(bl[0]) - 5, 'text-anchor': 'end', 'font-size': 10, fill: bl[2] });
+    t.textContent = bl[1];
+    svg.appendChild(t);
+  });
+  svg.appendChild(svgEl('polyline', { points: st.recs.map(function (r, i) { return X(i).toFixed(1) + ',' + Y(testTop(r)).toFixed(1); }).join(' '), fill: 'none', stroke: '#94a3b8', 'stroke-width': 2, 'stroke-dasharray': '6 5' }));
+  var pts = st.recs.map(function (r, i) { return { x: X(i), y: Y(r.total), r: r }; });
+  svg.appendChild(svgEl('polyline', { points: pts.map(function (p) { return p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' '), fill: 'none', stroke: '#6366f1', 'stroke-width': 3.2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+  pts.forEach(function (p) {
+    var c = svgEl('circle', { cx: p.x.toFixed(1), cy: p.y.toFixed(1), r: 5, fill: BAND_COLOR[p.r.tband], stroke: '#fff', 'stroke-width': 1.5 });
+    var t = svgEl('title', {});
+    t.textContent = testLabel(p.r.week, p.r.plat) + ': ' + p.r.total + ' (' + BAND_INFO[p.r.tband].name + ')';
+    c.appendChild(t);
+    svg.appendChild(c);
+  });
+  [0, n - 1].filter(function (v, i, a) { return a.indexOf(v) === i; }).forEach(function (i) {
+    var r = st.recs[i];
+    var t = svgEl('text', { x: X(i).toFixed(1), y: H - 12, 'text-anchor': i === 0 ? 'start' : (i === n - 1 ? 'end' : 'middle'), 'font-size': 10, fill: 'var(--muted)' });
+    t.textContent = labelOf(r.week).split(' (')[0] + ' · ' + PLAT_BY[r.plat].name;
+    svg.appendChild(t);
+  });
+  return h('div', {}, [svg, legend(['Solid: this candidate, coloured by band', 'Dashed grey: highest total in each test'])]);
+}
+function bandStack(st) {
+  var total = st.n || 1;
+  var parts = BAND_ORDER.map(function (b) {
+    var c = st.bands[b];
+    return c ? h('span', { style: { width: (c / total * 100).toFixed(1) + '%', background: BAND_COLOR[b] }, title: BAND_INFO[b].name + ': ' + c }, []) : null;
+  });
+  return h('div', {}, [
+    h('div', { class: 'band-stack' }, parts),
+    legend(BAND_ORDER.map(function (b) { return BAND_INFO[b].emoji + ' ' + BAND_INFO[b].name + ' · ' + st.bands[b]; }))
+  ]);
+}
+function recentTable(st, D) {
+  var rows = st.recs.slice().reverse().slice(0, 12).map(function (r) {
+    var acc = recAcc(r);
+    var comp = r.s.computer.m === null ? '–' : (r.qual ? '✓ ' : '✗ ') + r.s.computer.m;
+    var size = D.groups[r.ord] ? D.groups[r.ord].length : 1;
+    return h('tr', {}, [
+      h('td', {}, [testLabel(r.week, r.plat)]),
+      h('td', { class: 'n' }, [h('b', {}, [String(r.total)])]),
+      h('td', {}, [bandChip(r.tband)]),
+      h('td', { class: 'n' }, [pct(acc)]),
+      h('td', { class: 'n' }, [comp]),
+      h('td', { class: 'n' }, [r.rank === null ? '–' : fmtN(r.rank)]),
+      h('td', { class: 'n' }, [chip_('#' + r.gpos + ' of ' + size, r.gpos === 1 ? 'ok' : '')])
+    ]);
+  });
+  return h('div', { class: 'wrapx' }, [h('table', { class: 'tbl' }, [
+    h('thead', {}, [h('tr', {}, ['Test', 'Total', 'Band', 'Accuracy', 'Computer', 'Rank', 'Group'].map(function (t, i) {
+      return h('th', { class: i >= 1 ? 'n' : '' }, [t]);
+    }))]),
+    h('tbody', {}, rows)
+  ])]);
+}
+function viewProfile(D) {
+  var lb = board(D), members = S.members.slice().sort(bySlot), root = h('div', { class: 'stack' });
+  if (!members.length) {
+    root.appendChild(h('div', { class: 'card empty' }, [h('b', {}, ['No team members yet']), 'Add members under Team and rules first.']));
+    return root;
+  }
+  if (!S.profileId || !S.members.some(function (m) { return m.id === S.profileId; })) S.profileId = lb.length ? lb[0].m.id : members[0].id;
+  var sel = h('select', { 'aria-label': 'Choose member', onchange: function (e) { S.profileId = e.target.value; render(true); } },
+    members.map(function (m) { return h('option', { value: m.id }, [m.name]); }));
+  sel.value = S.profileId;
+  root.appendChild(h('div', { class: 'card row between' }, [
+    h('div', {}, [h('h2', {}, ['Member profile']), h('p', { class: 'sub' }, ['Strengths, trend, accuracy and forecast'])]), sel
+  ]));
+  var m = S.members.filter(function (x) { return x.id === S.profileId; })[0];
+  var st = statsFor(m.id, D);
+  if (!st.n) {
+    root.appendChild(h('div', { class: 'card empty' }, [h('b', {}, ['No scores for ' + m.name + ' yet']), 'Enter their first test under Enter scores.']));
+    return root;
+  }
+  var rankPos = lb.findIndex(function (r) { return r.m.id === m.id; }) + 1;
+  var gap = lb[0].st.total - st.total;
+  var msg = rankPos === 1 ? 'Leading the team. Protect that lead with steady accuracy.'
+    : gap.toFixed(1) + ' marks behind the leader. Small, steady gains close that gap.';
+  if (st.n > 1 && st.last === st.best) msg = 'New personal best with the latest test! ' + msg;
+  root.appendChild(h('div', { class: 'card' }, [
+    h('div', { class: 'row gap', style: { alignItems: 'center' } }, [
+      avatar(m, 64),
+      h('div', {}, [h('h2', { style: { fontSize: '1.35rem' } }, [m.name]),
+        h('div', { class: 'muted small' }, ['Team rank #' + rankPos + ' of ' + lb.length + ' · ' + st.n + ' tests · ' + st.wins + ' group wins'])])
+    ]),
+    h('div', { class: 'badges', style: { marginTop: '12px' } }, badgesFor(st).map(function (b) { return h('span', { class: 'chip ' + b.k }, [b.t]); })),
+    h('div', { class: 'motto', style: { marginTop: '12px' } }, [msg])
+  ]));
+  root.appendChild(h('div', { class: 'grid g4' }, [
+    tile('📊', 'Total average', st.total.toFixed(1), 'out of 390', bandChip(bandOf('total', st.total))),
+    tile('🏅', 'Best total', String(st.best), 'lowest ' + st.worst + ' · ' + BAND_INFO[bandOf('total', st.best)].name),
+    tile('😍', 'Outstanding totals', String(st.outstanding), 'out of ' + st.n + ' tests'),
+    tile('🎯', 'Accuracy (Mains)', pct(st.accMains), st.nCW ? fmtN(st.correctMains) + ' correct of ' + fmtN(st.attMains) + ' attempted' : 'enter Correct and Wrong to unlock')
+  ]));
+  root.appendChild(h('div', { class: 'grid g4' }, [
+    tile('🛡️', 'Computer qualifying', st.qualKnown ? st.qualYes + ' / ' + st.qualKnown : '–', 'scores of 24 or more'),
+    tile('🧭', 'Questions skipped', st.nCW ? String(st.skippedMains) : '–', 'Mains questions left unattempted'),
+    tile('💸', 'Marks lost', st.nCW ? '−' + st.wrongMains : '–', 'to wrong answers, 1 mark each'),
+    tile('📈', 'Consistency', st.sd === null ? '–' : '±' + st.sd.toFixed(0), 'spread of totals, lower is steadier')
+  ]));
+  var fc = st.fc;
+  var fcNext = fc ? Math.max(0, Math.min(TMAX, fc.next)) : null;
+  root.appendChild(h('div', { class: 'grid g2' }, [
+    h('div', { class: 'card' }, [
+      h('h2', {}, ['Trend forecast']),
+      h('p', { class: 'sub' }, ['A straight-line trend through your totals. An estimate, not a promise.']),
+      fc ? h('div', { class: 'row gap', style: { alignItems: 'center' } }, [
+        h('div', { class: 'bigg' }, [String(Math.round(fcNext))]),
+        h('div', {}, [h('div', { class: 'muted small' }, ['next test · ±' + Math.round(fc.rms) + ' marks']), bandChip(bandOf('total', fcNext))])
+      ]) : h('div', { class: 'empty' }, ['Needs at least 3 tests to forecast.']),
+      fc ? h('p', { class: 'muted small', style: { marginTop: '10px' } }, [(fc.slope >= 0 ? 'Trending up by about ' : 'Trending down by about ') + Math.abs(fc.slope).toFixed(1) + ' marks per test.']) : null,
+      h('h2', { style: { marginTop: '16px' } }, ['Attempts across the whole test']),
+      h('p', { class: 'sub' }, ['Correct ÷ attempted gives the accuracy']),
+      attemptBlock(st)
+    ]),
+    h('div', { class: 'card' }, [
+      h('h2', {}, ['Band record']),
+      h('p', { class: 'sub' }, ['Every total, grouped by the sheet bands']),
+      bandStack(st),
+      h('h2', { style: { marginTop: '16px' } }, ['Subject profile']),
+      h('p', { class: 'sub' }, ['Average as a share of each section maximum, against the subject topper']),
+      radarChart(st, D)
+    ])
+  ]));
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['Score trend']),
+    h('p', { class: 'sub' }, ['Total out of 390 by test, with the band lines and the highest total in each test']),
+    trendChart(st, D)
+  ]));
+  root.appendChild(h('div', { class: 'card' }, [h('h2', {}, ['Recent tests']), recentTable(st, D)]));
+  return root;
+}
+
+/* ================= Compare ================= */
+function cmpRow(label, va, vb, higherBetter, fmtFn) {
+  var winner = null;
+  if (va !== null && va !== undefined && vb !== null && vb !== undefined) {
+    if (va === vb) winner = 'tie';
+    else winner = higherBetter ? (va > vb ? 'a' : 'b') : (va < vb ? 'a' : 'b');
+  }
+  return { label: label, va: va, vb: vb, winner: winner, fmtFn: fmtFn };
+}
+function viewCompare(D) {
+  var members = S.members.slice().sort(bySlot), root = h('div', { class: 'stack' });
+  if (members.length < 2) {
+    root.appendChild(h('div', { class: 'card empty' }, [h('b', {}, ['Add at least two members']), 'Compare works once the team has two or more people.']));
+    return root;
+  }
+  var a = S.compareA && S.members.some(function (x) { return x.id === S.compareA; }) ? S.compareA : members[0].id;
+  var b = S.compareB && S.compareB !== a && S.members.some(function (x) { return x.id === S.compareB; }) ? S.compareB : members.filter(function (x) { return x.id !== a; })[0].id;
+  S.compareA = a; S.compareB = b;
+  var selA = h('select', { 'aria-label': 'First member', onchange: function (e) { S.compareA = e.target.value; if (S.compareB === e.target.value) S.compareB = null; render(true); } },
+    members.map(function (m) { return h('option', { value: m.id }, [m.name]); }));
+  var selB = h('select', { 'aria-label': 'Second member', onchange: function (e) { S.compareB = e.target.value; render(true); } },
+    members.map(function (m) { return h('option', { value: m.id }, [m.name]); }));
+  selA.value = a; selB.value = b;
+  root.appendChild(h('div', { class: 'card' }, [h('div', { class: 'row between' }, [
+    h('div', {}, [h('h2', {}, ['Head to head']), h('p', { class: 'sub' }, ['Pick any two members and see who leads, measure by measure'])]),
+    h('div', { class: 'row gap' }, [selA, h('b', {}, ['vs']), selB])
+  ])]));
+  var ma = S.members.filter(function (x) { return x.id === a; })[0], mb = S.members.filter(function (x) { return x.id === b; })[0];
+  var sa = statsFor(a, D), sb = statsFor(b, D);
+  if (!sa.n || !sb.n) {
+    root.appendChild(h('div', { class: 'card empty' }, [h('b', {}, ['Both need at least one test']), 'Enter a test for each person to compare them.']));
+    return root;
+  }
+  var rows = [
+    cmpRow('Total average (out of 390)', sa.total, sb.total, true, function (v) { return f1(v); }),
+    cmpRow('Best total', sa.best, sb.best, true, function (v) { return f0(v); }),
+    cmpRow('Maths average', sa.subAvg.maths, sb.subAvg.maths, true, f1),
+    cmpRow('Reasoning average', sa.subAvg.reasoning, sb.subAvg.reasoning, true, f1),
+    cmpRow('English average', sa.subAvg.english, sb.subAvg.english, true, f1),
+    cmpRow('GA average', sa.subAvg.ga, sb.subAvg.ga, true, f1),
+    cmpRow('Computer average', sa.subAvg.computer, sb.subAvg.computer, true, f1),
+    cmpRow('Accuracy (Mains)', sa.accMains, sb.accMains, true, pct),
+    cmpRow('Marks lost to wrong answers (lower is better)', sa.nCW ? sa.wrongMains : null, sb.nCW ? sb.wrongMains : null, false, function (v) { return '−' + v; }),
+    cmpRow('Outstanding totals', sa.outstanding, sb.outstanding, true, f0),
+    cmpRow('Consistency (lower is steadier)', sa.sd, sb.sd, false, f1),
+    cmpRow('Average rank (lower is better)', sa.avgRank, sb.avgRank, false, fmtN),
+    cmpRow('Group wins', sa.wins, sb.wins, true, f0),
+    cmpRow('Tests played', sa.n, sb.n, true, f0)
+  ];
+  var aWins = rows.filter(function (r) { return r.winner === 'a'; }).length;
+  var bWins = rows.filter(function (r) { return r.winner === 'b'; }).length;
+  var verdict = aWins === bWins ? 'Level on measures so far.' : (aWins > bWins ? ma.name : mb.name) + ' leads on ' + Math.max(aWins, bWins) + ' of ' + (aWins + bWins) + ' measures.';
+  var shared = [];
+  sa.recs.forEach(function (ra) {
+    var rb = sb.recs.filter(function (x) { return x.week === ra.week && x.plat === ra.plat; })[0];
+    if (rb) shared.push({ ra: ra, rb: rb });
+  });
+  var sharedA = shared.filter(function (x) { return x.ra.total > x.rb.total; }).length;
+  var sharedB = shared.filter(function (x) { return x.rb.total > x.ra.total; }).length;
+  root.appendChild(h('div', { class: 'card' }, [
+    h('div', { class: 'motto' }, ['⚔️ ' + verdict + (shared.length ? ' On the ' + shared.length + ' tests they both wrote: ' + ma.name + ' higher ' + sharedA + ' times, ' + mb.name + ' higher ' + sharedB + ' times.' : '')]),
+    h('div', { class: 'wrapx', style: { marginTop: '14px' } }, [h('table', { class: 'tbl' }, [
+      h('thead', {}, [h('tr', {}, [h('th', {}, ['Measure']), h('th', { class: 'n' }, [ma.name]), h('th', { class: 'n' }, [mb.name])])]),
+      h('tbody', {}, rows.map(function (r) {
+        return h('tr', {}, [
+          h('td', {}, [r.label]),
+          h('td', { class: 'n' + (r.winner === 'a' ? ' compare-win' : '') }, [r.va === null || r.va === undefined ? '–' : r.fmtFn(r.va)]),
+          h('td', { class: 'n' + (r.winner === 'b' ? ' compare-win' : '') }, [r.vb === null || r.vb === undefined ? '–' : r.fmtFn(r.vb)])
+        ]);
+      }))
+    ])])
+  ]));
+  if (shared.length) {
+    root.appendChild(h('div', { class: 'card' }, [
+      h('h2', {}, ['Shared tests']),
+      h('p', { class: 'sub' }, ['Every test both of them wrote, side by side']),
+      h('div', { class: 'wrapx' }, [h('table', { class: 'tbl' }, [
+        h('thead', {}, [h('tr', {}, [h('th', {}, ['Test']), h('th', { class: 'n' }, [ma.name]), h('th', { class: 'n' }, [mb.name]), h('th', {}, ['Higher'])])]),
+        h('tbody', {}, shared.map(function (x) {
+          var who = x.ra.total === x.rb.total ? 'Tie' : (x.ra.total > x.rb.total ? ma.name : mb.name);
+          return h('tr', {}, [h('td', {}, [testLabel(x.ra.week, x.ra.plat)]), h('td', { class: 'n' }, [String(x.ra.total)]), h('td', { class: 'n' }, [String(x.rb.total)]), h('td', {}, [who])]);
+        }))
+      ])])
+    ]));
+  }
+  return root;
+}
+
+/* ================= History ================= */
+function viewHistory(D) {
+  var f = S.hist, root = h('div', { class: 'stack' });
+  var weekSel = h('select', { 'aria-label': 'Filter by test week', onchange: function (e) { f.week = e.target.value; render(true); } },
+    [h('option', { value: 'all' }, ['All test weeks'])].concat(WEEKS.map(function (w) { return h('option', { value: w.key }, [labelOf(w.key)]); })));
+  weekSel.value = f.week;
+  var platSel = h('select', { 'aria-label': 'Filter by platform', onchange: function (e) { f.plat = e.target.value; render(true); } },
+    [h('option', { value: 'all' }, ['All platforms'])].concat(PLATS.map(function (p) { return h('option', { value: p.key }, [p.name]); })));
+  platSel.value = f.plat;
+  var memSel = h('select', { 'aria-label': 'Filter by candidate', onchange: function (e) { f.member = e.target.value; render(true); } },
+    [h('option', { value: 'all' }, ['All candidates'])].concat(S.members.slice().sort(bySlot).map(function (m) { return h('option', { value: m.id }, [m.name]); })));
+  memSel.value = f.member;
+  var search = h('input', { type: 'search', id: 'histSearch', placeholder: 'Search name or test…', value: f.q, 'aria-label': 'Search history',
+    oninput: function (e) {
+      f.q = e.target.value; render(true);
+      var s = $('#histSearch');
+      if (s) { s.focus(); s.setSelectionRange(s.value.length, s.value.length); }
+    } });
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['Score history']),
+    h('p', { class: 'sub' }, ['Every saved analysis. Filter by week, platform or candidate, or search by name.']),
+    h('div', { class: 'row gap', style: { flexWrap: 'wrap' } }, [weekSel, platSel, memSel, search])
+  ]));
+  var list = D.recs.filter(function (r) {
+    if (f.week !== 'all' && r.week !== f.week) return false;
+    if (f.plat !== 'all' && r.plat !== f.plat) return false;
+    if (f.member !== 'all' && r.member !== f.member) return false;
+    if (f.q) {
+      var q = f.q.toLowerCase();
+      if (nameOf(r.member, D).toLowerCase().indexOf(q) === -1 && testLabel(r.week, r.plat).toLowerCase().indexOf(q) === -1) return false;
+    }
+    return true;
+  }).sort(function (a, b) { return (b.ord - a.ord) || nameOf(a.member, D).localeCompare(nameOf(b.member, D)); });
+  if (!list.length) {
+    root.appendChild(h('div', { class: 'card empty' }, [h('b', {}, ['No scores match']), 'Try clearing a filter.']));
+    return root;
+  }
+  var rows = list.map(function (r) {
+    var m = D.mem[r.member], label = testLabel(r.week, r.plat);
+    var cells = [h('td', { 'data-label': 'Test' }, [label]), h('td', { 'data-label': 'Candidate' }, [h('div', { class: 'who' }, [avatar(m, 28), m.name])])];
+    SUBJECTS.forEach(function (sj) {
+      cells.push(h('td', { class: 'n', 'data-label': sj.label }, [r.s[sj.k].m === null ? '–' : String(r.s[sj.k].m)]));
+    });
+    cells.push(h('td', { class: 'n', 'data-label': 'Correct' }, [r.cnt ? String(r.cnt.c) : '–']));
+    cells.push(h('td', { class: 'n', 'data-label': 'Wrong' }, [r.cnt ? String(r.cnt.w) : '–']));
+    cells.push(h('td', { class: 'n', 'data-label': 'Not attempted' }, [r.cnt ? String(r.cnt.na) : '–']));
+    cells.push(h('td', { class: 'n', 'data-label': 'Total' }, [h('b', {}, [String(r.total)]), h('div', {}, [bandChip(r.tband)])]));
+    cells.push(h('td', { class: 'n', 'data-label': 'Accuracy' }, [pct(recAcc(r))]));
+    cells.push(h('td', { class: 'n', 'data-label': 'Rank' }, [r.rank === null ? '–' : fmtN(r.rank)]));
+    cells.push(h('td', { class: 'n', 'data-label': 'Group' }, [chip_('#' + r.gpos, r.gpos === 1 ? 'ok' : '')]));
+    cells.push(h('td', { class: 'n', 'data-label': 'Actions' }, S.readOnly ? [] : [h('span', { class: 'row gap end' }, [
+      h('button', { class: 'btn small ghost', type: 'button', onclick: function () { openEnter(r.week, r.plat, 'mine', r.member); } }, ['Edit']),
+      h('button', { class: 'btn small danger', type: 'button', onclick: function () { deleteScoreRow(r.id, m.name + ' · ' + label); } }, ['Delete'])
+    ])]));
+    return h('tr', {}, cells);
+  });
+  var heads = ['Test', 'Candidate'].concat(SUBJECTS.map(function (sj) { return sj.label; }))
+    .concat(['Correct', 'Wrong', 'Not attempted', 'Total', 'Accuracy', 'Rank', 'Group', 'Actions']);
+  root.appendChild(h('div', { class: 'card' }, [h('div', { class: 'wrapx' }, [h('table', { class: 'tbl board' }, [
+    h('thead', {}, [h('tr', {}, heads.map(function (t, i) { return h('th', { class: i >= 2 && i <= 11 ? 'n' : '' }, [t]); }))]),
+    h('tbody', {}, rows)
+  ])])]));
+  return root;
+}
+
+/* ================= Team and rules ================= */
+function rangeTexts(key, max) {
+  var b = BANDS[key];
+  return {
+    O: max > b.o ? b.o + '–' + max : String(b.o),
+    GS: b.gs + '–' + (b.o - 1),
+    OK: b.ok + '–' + (b.gs - 1),
+    NI: 'below ' + b.ok
+  };
+}
+function rulesTable() {
+  var rows = SUBJECTS.map(function (sj) {
+    var key = sj.k, t = rangeTexts(key, sj.max);
+    return h('tr', {}, [
+      h('td', {}, [h('b', {}, [sj.label])]),
+      h('td', { class: 'n' }, [String(sj.q) + ' Q']),
+      h('td', { class: 'n' }, [String(sj.max)]),
+      h('td', {}, [h('span', { class: 'chip band b-O' }, ['😍 ' + t.O])]),
+      h('td', {}, [h('span', { class: 'chip band b-GS' }, ['😊 ' + t.GS])]),
+      h('td', {}, [h('span', { class: 'chip band b-OK' }, ['🙂 ' + t.OK])]),
+      h('td', {}, [h('span', { class: 'chip band b-NI' }, ['😳 ' + t.NI])])
+    ]);
+  });
+  var tt = rangeTexts('total', TMAX);
+  rows.push(h('tr', {}, [
+    h('td', {}, [h('b', {}, ['Total (Mains)'])]), h('td', { class: 'n' }, ['130 Q']), h('td', { class: 'n' }, ['390']),
+    h('td', {}, [h('span', { class: 'chip band b-O' }, ['😍 ' + tt.O])]), h('td', {}, [h('span', { class: 'chip band b-GS' }, ['😊 ' + tt.GS])]),
+    h('td', {}, [h('span', { class: 'chip band b-OK' }, ['🙂 ' + tt.OK])]), h('td', {}, [h('span', { class: 'chip band b-NI' }, ['😳 ' + tt.NI])])
+  ]));
+  return h('div', { class: 'wrapx' }, [h('table', { class: 'tbl rules' }, [
+    h('thead', {}, [h('tr', {}, ['Section', 'Questions', 'Max', 'Outstanding', 'Good Score', 'Okay', 'Needs Improvement'].map(function (t, i) {
+      return h('th', { class: i >= 1 && i <= 2 ? 'n' : '' }, [t]);
+    }))]),
+    h('tbody', {}, rows)
+  ])]);
+}
+async function saveSettings() {
+  var nameEl = document.querySelector('input[aria-label="Group name"]');
+  var name = String(nameEl ? nameEl.value : S.settings.groupName || '').trim().slice(0, 40) || 'Our Mains Squad';
+  var ok = await run(function () { return putSettings({ groupName: name }); }, 'Squad name saved');
+  if (ok) S.teamDraft = {};
+}
+async function addMember(raw) {
+  var name = String(raw || '').trim().slice(0, 20);
+  if (!name) { toast('Type a name first.', 'warn'); return; }
+  if (S.members.some(function (m) { return m.name.toLowerCase() === name.toLowerCase(); })) { toast(name + ' is already in the team.', 'warn'); return; }
+  if (S.members.length >= MAX_MEMBERS) { toast('The team is full (20 members).', 'warn'); return; }
+  var slot = 1;
+  while (S.members.some(function (m) { return m.slot === slot; }) && slot < 50) slot++;
+  var id = 'm' + slot;
+  while (S.members.some(function (m) { return m.id === id; })) { slot++; id = 'm' + slot; }
+  await run(function () { return putMember({ id: id, name: name, color: COLORS[(slot - 1) % COLORS.length], slot: slot }); }, name + ' added to the team');
+}
+async function renameMember(m, raw) {
+  var name = String(raw || '').trim().slice(0, 20);
+  if (!name) { toast('Name cannot be empty.', 'warn'); return; }
+  if (name === m.name) return;
+  await run(function () { return putMember({ id: m.id, name: name, color: m.color, slot: m.slot }); }, 'Name updated');
+}
+function removeMember(m) {
+  var n = S.scores.filter(function (s) { return s.member === m.id; }).length;
+  confirmBox('Remove ' + m.name + '?', 'This also deletes ' + n + ' score' + (n === 1 ? '' : 's') + '. This cannot be undone.', 'Remove', async function () {
+    await run(async function () {
+      var ids = S.scores.filter(function (s) { return s.member === m.id; }).map(function (s) { return s.id; });
+      for (var i = 0; i < ids.length; i++) await dropScore(ids[i]);
+      await dropMember(m.id);
+    }, m.name + ' removed');
+  }, true);
+}
+async function saveDates() {
+  var overrides = {};
+  Array.prototype.forEach.call(document.querySelectorAll('input[data-week]'), function (inp) {
+    var key = inp.getAttribute('data-week'), v = trim(inp.value).slice(0, 40) || DEFAULT_LABEL[key];
+    if (v !== DEFAULT_LABEL[key]) overrides[key] = v;
+  });
+  await run(function () { return putLabels(overrides); }, 'Test dates saved');
+}
+async function confirmDates() {
+  var all = {};
+  WEEKS.forEach(function (w) { all[w.key] = labelOf(w.key); });
+  await run(function () { return putLabels(all); }, 'All dates confirmed');
+}
+function resetDates() {
+  confirmBox('Reset all test dates?', 'Every date goes back to the default schedule, and estimated dates are marked est. again.', 'Reset', async function () {
+    await run(function () { return putLabels({}); }, 'Dates reset to defaults');
+  }, true);
+}
+function csvCell(v) {
+  var s = (v === null || v === undefined) ? '' : String(v);
+  if (/^[=+\-@]/.test(s)) s = "'" + s;
+  return '"' + s.replace(/"/g, '""') + '"';
+}
+async function exportCsv() {
+  var D = S.D || derive();
+  var head = ['Test', 'Platform', 'Candidate'];
+  SUBJECTS.forEach(function (sj) { head.push(sj.label + ' marks'); });
+  head = head.concat(['Correct', 'Wrong', 'Attempted', 'Not attempted', 'Questions counted', 'Total /390', 'Total band', 'Accuracy', 'Computer qualifying', 'Rank', 'Group position']);
+  var rows = D.recs.slice().sort(function (a, b) { return (a.ord - b.ord) || nameOf(a.member, D).localeCompare(nameOf(b.member, D)); }).map(function (r) {
+    var line = [labelOf(r.week), PLAT_BY[r.plat].name, nameOf(r.member, D)];
+    SUBJECTS.forEach(function (sj) { line.push(r.s[sj.k].m === null ? '' : r.s[sj.k].m); });
+    var c = r.cnt;
+    line.push(c ? c.c : '', c ? c.w : '', c ? c.att : '', c ? c.na : '', c ? c.q : '');
+    line.push(r.total, r.tband ? BAND_INFO[r.tband].name : '', c && c.acc !== null ? Math.round(c.acc * 100) + '%' : '',
+      r.qual === null ? '' : (r.qual ? 'Yes' : 'No'), r.rank === null ? '' : r.rank, r.gpos);
+    return line;
+  });
+  var csv = [head].concat(rows).map(function (line) { return line.map(csvCell).join(','); }).join('\r\n');
+  var name = 'mains-tracker-' + new Date().toISOString().slice(0, 10) + '.csv';
+  try { await CAP.downloads.save({ filename: name, data: csv }); toast('Backup saved', 'ok'); }
+  catch (e) { if (!e || e.code !== 'declined') toast('Could not save the backup. Please try again.', 'warn'); }
+}
+function viewTeam(D) {
+  var td = S.teamDraft, root = h('div', { class: 'stack' });
+  var nameIn = h('input', { type: 'text', maxlength: '40', value: td.group === undefined ? S.settings.groupName : td.group, 'aria-label': 'Group name',
+    disabled: S.readOnly ? true : null, oninput: function (e) { td.group = e.target.value; } });
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['Group name']),
+    h('p', { class: 'sub' }, ['Shown in the header of the tracker']),
+    h('div', { class: 'row gap' }, [nameIn, h('button', { class: 'btn', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { saveSettings(); } }, ['Save name'])])
+  ]));
+  var list = S.members.slice().sort(bySlot), full = list.length >= MAX_MEMBERS;
+  var newName = h('input', { type: 'text', maxlength: '20', placeholder: 'Add a name, e.g. Riya', 'aria-label': 'New member name', disabled: (S.readOnly || full) ? true : null, id: 'newMember' });
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['Team members']),
+    h('p', { class: 'sub' }, [list.length + ' of ' + MAX_MEMBERS + ' slots used. Names must be unique.']),
+    list.length ? h('ul', { class: 'plain' }, list.map(function (m) {
+      var nameField = h('input', { type: 'text', maxlength: '20', value: m.name, 'aria-label': 'Name for ' + m.name, disabled: S.readOnly ? true : null });
+      return h('li', {}, [
+        h('span', { class: 'row gap' }, [avatar(m, 34), nameField]),
+        h('span', { class: 'row gap' }, [
+          h('span', { class: 'muted small' }, [statsFor(m.id, D).n + ' tests']),
+          h('button', { class: 'btn small ghost', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { renameMember(m, nameField.value); } }, ['Save name']),
+          h('button', { class: 'btn small danger', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { removeMember(m); } }, ['Remove'])
+        ])
+      ]);
+    })) : h('div', { class: 'empty', style: { padding: '14px' } }, ['No members yet. Add the names of everyone in the squad.']),
+    h('div', { class: 'row gap', style: { marginTop: '14px' } }, [
+      newName,
+      h('button', { class: 'btn', type: 'button', disabled: (S.readOnly || full) ? true : null, onclick: function () { addMember(newName.value); } }, ['Add member'])
+    ])
+  ]));
+  var dateRows = WEEKS.map(function (w) {
+    var inp = h('input', { type: 'text', maxlength: '40', value: labelOf(w.key), 'data-week': w.key, 'aria-label': 'Label for ' + w.month + ' T' + w.n,
+      disabled: S.readOnly ? true : null, style: { minWidth: '220px' } });
+    return h('div', { class: 'row between', style: { padding: '8px 0', borderBottom: '1px solid var(--line)' } }, [
+      h('div', { class: 'row gap' }, [h('b', { style: { minWidth: '54px' } }, [w.month + ' T' + w.n]), inp]),
+      isConfirmed(w.key) ? h('span', { class: 'chip ok' }, ['confirmed']) : h('span', { class: 'chip est' }, ['est.'])
+    ]);
+  });
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['Test dates']),
+    h('p', { class: 'sub' }, ['Oct and Nov T1 come from your sheet. Other dates follow the Friday-to-Sunday pattern: correct any that differ, then save.']),
+    h('div', {}, dateRows),
+    h('div', { class: 'row end gap', style: { marginTop: '14px', flexWrap: 'wrap' } }, [
+      h('button', { class: 'btn ghost', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { resetDates(); } }, ['Reset to defaults']),
+      h('button', { class: 'btn ghost', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { confirmDates(); } }, ['Confirm all as shown']),
+      h('button', { class: 'btn', type: 'button', disabled: S.readOnly ? true : null, onclick: function () { saveDates(); } }, ['Save dates'])
+    ])
+  ]));
+  root.appendChild(h('div', { class: 'card' }, [
+    h('h2', {}, ['Scoring rules and colour bands']),
+    h('p', { class: 'sub' }, ['Each correct answer is +3, each wrong answer is −1, and unattempted is 0. Candidates enter five section marks and the whole test’s Correct and Wrong. The app checks that they agree. Marks are out of 390 for the four Mains sections; Computer is qualifying only, at 24 or more.']),
+    rulesTable()
+  ]));
+  if (CAP.downloads) {
+    root.appendChild(h('div', { class: 'card' }, [
+      h('h2', {}, ['Backup']),
+      h('p', { class: 'sub' }, ['Download every score as a spreadsheet file, including Correct, Wrong and accuracy. Keep a copy after each week.']),
+      h('button', { class: 'btn ghost', type: 'button', onclick: function () { exportCsv(); } }, ['Download backup (CSV)'])
+    ]));
+  }
+  root.appendChild(h('div', { class: 'help' }, [
+    h('span', { 'aria-hidden': 'true' }, ['🔐']),
+    h('div', {}, [h('b', {}, ['Sharing: ']), 'Share the link with the group. Give every candidate Contributor access so each person can enter their own scores. Viewer access can see everything but cannot change it.'])
+  ]));
+  return root;
+}
+
 init();
 })();
 </script>
