@@ -42,6 +42,9 @@ button,input,select{font:inherit;color:inherit}
 .nav button:hover{background:var(--bg2);color:var(--ink)}
 .nav button[aria-current="page"]{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;box-shadow:0 8px 18px rgba(79,70,229,.32)}
 main{margin-top:18px;padding-bottom:30px}
+@media (max-width:760px){
+  main{padding-bottom:80px}
+}
 .stack{display:flex;flex-direction:column;gap:16px}
 .grid{display:grid;gap:14px}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -313,8 +316,8 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
   .icon-btn{width:36px;height:36px;font-size:.9rem}
 
   /* Mobile nav - scrollable horizontal */
-  .nav{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
-  .nav button{padding:10px 12px;font-size:.8rem;white-space:nowrap}
+  .nav{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;gap:2px;padding:6px}
+  .nav button{padding:6px 8px;font-size:.7rem;white-space:nowrap;gap:2px}
 
   /* Layout */
   .wrap{padding:0 12px}
@@ -902,9 +905,11 @@ function buildNav() {
 
   var bottomNav = $('#bottomNav');
   clearEl(bottomNav);
+  var shortLabels = { home: 'Home', enter: 'Enter', tests: 'Tests', board: 'Board', profile: 'Profile', compare: 'vs', history: 'History', team: 'Team' };
   VIEWS.forEach(function (v) {
-    bottomNav.appendChild(h('button', { type: 'button', 'data-view': v.id, onclick: function () { go(v.id); } },
-      [h('span', { class: 'bottom-nav-icon', 'aria-hidden': 'true' }, [v.icon]), h('span', { style: { display: 'block' } }, [v.label])]));
+    var shortLabel = shortLabels[v.id] || v.label;
+    bottomNav.appendChild(h('button', { type: 'button', 'data-view': v.id, onclick: function () { go(v.id); }, title: v.label },
+      [h('span', { class: 'bottom-nav-icon', 'aria-hidden': 'true' }, [v.icon]), h('span', { style: { fontSize: '.55rem', display: 'block' } }, [shortLabel])]));
   });
 }
 function renderNav() {
