@@ -952,7 +952,6 @@ firebase.auth().onAuthStateChanged(function(user) {
       scheduleRender();
     });
     S.mode = 'db';
-    initialLoad = false;
   } catch (e) {
     console.error('Firestore error:', e);
     S.mode = 'local';
