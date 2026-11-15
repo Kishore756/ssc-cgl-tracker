@@ -315,6 +315,53 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 <div id="toasts" aria-live="polite"></div>
 <div id="modal"></div>
 <script>
+// ========= FIREBASE INIT (Add this at the very beginning) =========
+firebase.initializeApp({
+  apiKey: "AIzaSyAI•••••••••••••••••••••••••••••••",
+  authDomain: "cgl-mains-tracker.firebaseapp.com",
+  projectId: "cgl-mains-tracker",
+  storageBucket: "cgl-mains-tracker.appspot.com",
+  messagingSenderId: "900426059361",
+  appId: "1:900426059361:web:6c4f34bde25385e4a9e420"
+});
+
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Sign-In Button Handler
+function setupSignIn() {
+  const btn = document.getElementById('signInBtn');
+  if (!btn) return;
+  
+  btn.addEventListener('click', function() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then(function(result) {
+        console.log('✅ Signed in as:', result.user.email);
+        alert('✅ Signed in as: ' + result.user.email + '\n\nYou can now import data!');
+      })
+      .catch(function(error) {
+        console.error('❌ Sign in error:', error);
+        alert('❌ Sign in failed: ' + error.message);
+      });
+  });
+  
+  // Update button when auth state changes
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      btn.textContent = '✅';
+      btn.title = 'Signed in: ' + user.email;
+      btn.style.background = 'rgba(16, 185, 129, 0.3)';
+    } else {
+      btn.textContent = '🔐';
+      btn.title = 'Click to sign in with Google';
+      btn.style.background = 'rgba(255, 255, 255, 0.18)';
+    }
+  });
+}
+
+// =========================================================
+
 /* ==== CORE ==== */
 (function(){
 'use strict';
@@ -849,6 +896,7 @@ async function init() {
   applyTheme();
   wireTyping();
   render(true);
+  setupSignIn();
   
   // Firebase Sign-In
 document.getElementById('signInBtn').addEventListener('click', function() {
