@@ -301,7 +301,8 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
     </div>
     <div class="hero-tools">
       <span class="pill" id="modePill">Connecting…</span>
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+     <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+     <button class="icon-btn" id="signInBtn" type="button" aria-label="Sign in with Google" title="Sign in with Google">🔐</button>
     </div>
   </div>
 </header>
@@ -848,6 +849,29 @@ async function init() {
   applyTheme();
   wireTyping();
   render(true);
+  
+  // Firebase Sign-In
+document.getElementById('signInBtn').addEventListener('click', function() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    alert('Signed in as: ' + result.user.email);
+    window.location.reload();
+  }).catch(function(error) {
+    alert('Sign in failed: ' + error.message);
+  });
+});
+
+// Check auth status
+firebase.auth().onAuthStateChanged(function(user) {
+  const btn = document.getElementById('signInBtn');
+  if (user) {
+    btn.textContent = '✅';
+    btn.title = 'Signed in: ' + user.email;
+  } else {
+    btn.textContent = '🔐';
+    btn.title = 'Click to sign in with Google';
+  }
+});
   var c = window.claude, db = null;
   if (c && typeof c.use === 'function') {
     try { db = await c.use('db'); } catch (e) { db = null; }
